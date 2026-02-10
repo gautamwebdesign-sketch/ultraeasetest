@@ -3,6 +3,9 @@ import { getProducts } from "@/lib/shopify";
 import { ProductView } from "@/components/product/ProductView";
 import { Container } from "@/components/ui";
 
+// Revalidate this page every 60 seconds
+export const revalidate = 60;
+
 // Server Component
 export default async function ProductPage() {
     const products = await getProducts();
