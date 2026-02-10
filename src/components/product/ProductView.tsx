@@ -18,14 +18,36 @@ export function ProductView({ product }: ProductViewProps) {
         currency: product.priceRange.minVariantPrice.currencyCode,
     }).format(parseFloat(product.priceRange.minVariantPrice.amount));
 
+    /* 
+       We need the store domain for the checkout URL. 
+       Since this is a client component, we can't access process.env securely if it's not prefixed with NEXT_PUBLIC_.
+       For now, we will hardcode the domain or pass it as a prop. 
+       Let's pass it as a prop for cleanliness, but for this iteration, hardcoding the known domain is safer/faster.
+    */
+    const STORE_DOMAIN = "ultra-ease.myshopify.com";
+
     const handleAddToCart = () => {
         setIsAdding(true);
-        // Simulate API call or redirect to checkout
-        // Ideally, we would create a checkout mutation here
-        setTimeout(() => {
+
+        const variantId = product.variants.nodes[0]?.id;
+        if (!variantId) {
+            alert("Product variant not found");
             setIsAdding(false);
-            alert(`Added ${product.title} to cart! (Checkout integration pending)`);
-        }, 1000);
+            return;
+        }
+
+        // specific logic to handle GID (Global ID) from Shopify to Variant ID number 
+        // GID format: gid://shopify/ProductVariant/123456789
+        // We can use the whole GID for some APIs, but often the permalink cart url expects the number.
+        // However, the standard permalink format /cart/variant_id:1 usually works with the numeric ID.
+        // Let's try to extract it.
+        const numericId = variantId.split("/").pop();
+
+        // Construct checkout URL
+        const checkoutUrl = `https://${STORE_DOMAIN}/cart/${numericId}:1`;
+
+        // Redirect
+        window.location.href = checkoutUrl;
     };
 
     const imageNode = product.images.nodes[0];

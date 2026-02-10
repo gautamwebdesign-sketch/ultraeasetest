@@ -28,6 +28,11 @@ export interface Product {
             currencyCode: string;
         };
     };
+    variants: {
+        nodes: {
+            id: string;
+        }[];
+    };
     images: {
         nodes: {
             url: string;
@@ -48,6 +53,11 @@ const productsQuery = `
           minVariantPrice {
             amount
             currencyCode
+          }
+        }
+        variants(first: 1) {
+          nodes {
+            id
           }
         }
         images(first: 5) {
@@ -79,6 +89,11 @@ export async function getProducts(): Promise<Product[]> {
                     amount: node.priceRange.minVariantPrice.amount,
                     currencyCode: node.priceRange.minVariantPrice.currencyCode,
                 },
+            },
+            variants: {
+                nodes: node.variants.nodes.map((v: any) => ({
+                    id: v.id,
+                })),
             },
             images: {
                 nodes: node.images.nodes.map((img: any) => ({
