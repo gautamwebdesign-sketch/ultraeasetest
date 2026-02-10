@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styles from "./Hero.module.css";
 import { Button } from "@/components/ui";
+import { Scene } from "./Scene";
 
 export function Hero() {
     return (
@@ -23,10 +24,8 @@ export function Hero() {
             </div>
 
             <div className={styles.imageContainer}>
-                {/* Placeholder for the image provided by user */}
-                <div className={styles.productPlaceholder}>
-                    [Product Image Placeholder]
-                </div>
+                {/* 3D Model Scene */}
+                <Scene />
             </div>
         </section>
     );

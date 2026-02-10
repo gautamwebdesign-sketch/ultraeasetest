@@ -6,6 +6,7 @@ import { useState } from "react";
 import type { Product } from "@/lib/shopify";
 
 import { Gallery } from "./Gallery";
+import { Truck, ShieldCheck, Zap, RotateCcw } from "lucide-react";
 
 interface ProductViewProps {
     product: Product;
@@ -59,22 +60,67 @@ export function ProductView({ product }: ProductViewProps) {
             </div>
 
             <div className={styles.details}>
-                <span className={styles.inStock}>In Stock • Ready to Ship</span>
-                <h1 className={styles.title}>{product.title}</h1>
-                <p className={styles.price}>{price}</p>
-
-                <div className={styles.description} dangerouslySetInnerHTML={{ __html: product.descriptionHtml }} />
-
-                <div className={styles.actions}>
-                    <Button size="lg" onClick={handleAddToCart} disabled={isAdding}>
-                        {isAdding ? "Processing..." : "Add to Bag"}
-                    </Button>
+                <div className={styles.header}>
+                    <span className={styles.badge}>New Release</span>
+                    <h1 className={styles.title}>{product.title}</h1>
+                    <div className={styles.priceContainer}>
+                        <span className={styles.price}>{price}</span>
+                        <span className={styles.shippingBadge}>Free Express Shipping</span>
+                    </div>
                 </div>
 
-                <div className={styles.meta}>
-                    <p>Includes: Device, Charging Dock, Adapter, Manual</p>
-                    <p>Warranty: 2 Years</p>
-                    <p>Free Shipping within Germany</p>
+                <div className={styles.actionsBox}>
+                    <Button size="lg" onClick={handleAddToCart} disabled={isAdding} className={styles.addToCartBtn}>
+                        {isAdding ? "Processing..." : "Add to Bag"}
+                    </Button>
+                    <p className={styles.guaranteeText}>30-Day Money-Back Guarantee</p>
+                </div>
+
+                <div className={styles.featuresGrid}>
+                    <div className={styles.featureItem}>
+                        <Zap className={styles.featureIcon} size={20} />
+                        <div>
+                            <h4>Instant Relief</h4>
+                            <p>Advanced ultrasound technology</p>
+                        </div>
+                    </div>
+                    <div className={styles.featureItem}>
+                        <ShieldCheck className={styles.featureIcon} size={20} />
+                        <div>
+                            <h4>2-Year Warranty</h4>
+                            <p>Full coverage protection</p>
+                        </div>
+                    </div>
+                    <div className={styles.featureItem}>
+                        <Truck className={styles.featureIcon} size={20} />
+                        <div>
+                            <h4>Fast Application</h4>
+                            <p>Just 10 mins per session</p>
+                        </div>
+                    </div>
+                    <div className={styles.featureItem}>
+                        <RotateCcw className={styles.featureIcon} size={20} />
+                        <div>
+                            <h4>Risk Free</h4>
+                            <p>Try it at home for 30 days</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className={styles.descriptionSection}>
+                    <h3>Product Overview</h3>
+                    <div className={styles.description} dangerouslySetInnerHTML={{ __html: product.descriptionHtml }} />
+                </div>
+
+                <div className={styles.boxContent}>
+                    <h3>What's in the Box</h3>
+                    <ul className={styles.boxList}>
+                        <li>1x Ultraease Device</li>
+                        <li>1x Charging Dock</li>
+                        <li>1x Power Adapter</li>
+                        <li>1x User Manual</li>
+                        <li>1x Travel Case</li>
+                    </ul>
                 </div>
             </div>
         </Container>
