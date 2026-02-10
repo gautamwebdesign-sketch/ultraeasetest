@@ -5,6 +5,8 @@ import styles from "@/app/product/page.module.css";
 import { useState } from "react";
 import type { Product } from "@/lib/shopify";
 
+import { Gallery } from "./Gallery";
+
 interface ProductViewProps {
     product: Product;
 }
@@ -50,24 +52,10 @@ export function ProductView({ product }: ProductViewProps) {
         window.location.href = checkoutUrl;
     };
 
-    const imageNode = product.images.nodes[0];
-
     return (
         <Container className={styles.container}>
             <div className={styles.gallery}>
-                {imageNode ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
-                        src={imageNode.url}
-                        alt={imageNode.altText || product.title}
-                        className={styles.imagePlaceholder}
-                        style={{ objectFit: 'cover' }}
-                    />
-                ) : (
-                    <div className={styles.imagePlaceholder}>
-                        No Image Available
-                    </div>
-                )}
+                <Gallery media={product.media} />
             </div>
 
             <div className={styles.details}>
