@@ -1,0 +1,86 @@
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 980px;
+    /* Apple-style rounded pill */
+    font-weight: 500;
+    font-size: 17px;
+    /* Apple standard body size */
+    line-height: 1.17648;
+    letter-spacing: -0.022em;
+    transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+    cursor: pointer;
+    white-space: nowrap;
+    outline: none;
+    border: 1px solid transparent;
+}
+
+.button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.button:active:not(:disabled) {
+    transform: scale(0.98);
+}
+
+/* Variants */
+.primary {
+    background-color: var(--primary);
+    color: #fff;
+}
+
+.primary:hover:not(:disabled) {
+    background-color: var(--primary-hover);
+}
+
+.secondary {
+    background-color: var(--secondary);
+    color: var(--foreground);
+}
+
+.secondary:hover:not(:disabled) {
+    background-color: #e8e8ed;
+    /* Slightly darker gray */
+}
+
+.outline {
+    background-color: transparent;
+    border-color: var(--foreground);
+    color: var(--foreground);
+}
+
+.outline:hover:not(:disabled) {
+    background-color: var(--foreground);
+    color: var(--background);
+}
+
+.ghost {
+    background-color: transparent;
+    color: var(--primary);
+}
+
+.ghost:hover:not(:disabled) {
+    text-decoration: underline;
+}
+
+/* Sizes */
+.sm {
+    padding: 8px 16px;
+    font-size: 14px;
+}
+
+.md {
+    padding: 12px 24px;
+    font-size: 17px;
+}
+
+.lg {
+    padding: 16px 32px;
+    font-size: 19px;
+}
+
+.full {
+    width: 100%;
+}

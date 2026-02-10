@@ -1,0 +1,44 @@
+.footer {
+    background-color: var(--secondary);
+    /* Light gray background */
+    padding: 40px 0;
+    margin-top: 80px;
+    font-size: 12px;
+    color: #86868b;
+    /* Apple minimal gray text */
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.legal {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.links {
+    display: flex;
+    gap: 20px;
+}
+
+.link {
+    color: #515154;
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.disclaimer {
+    max-width: 800px;
+    line-height: 1.5;
+}
