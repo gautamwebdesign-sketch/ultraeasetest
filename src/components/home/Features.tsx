@@ -50,15 +50,15 @@ export function Features() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="group relative p-8 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-colors"
+                            className="group relative p-8 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 hover:border-white/20 transition-all duration-300"
                         >
-                            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
+                            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
                             <div className="relative z-10">
-                                <div className="inline-flex p-3 rounded-lg bg-primary/20 text-primary mb-5 group-hover:scale-110 transition-transform">
+                                <div className="inline-flex p-3 rounded-lg bg-primary/20 text-primary mb-5 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300">
                                     <feature.icon className="h-6 w-6" />
                                 </div>
-                                <h3 className="text-lg font-semibold text-white mb-2">{feature.name}</h3>
-                                <p className="text-sm text-white/60 leading-relaxed">
+                                <h3 className="text-lg font-bold font-heading text-white mb-3 group-hover:text-primary-foreground transition-colors">{feature.name}</h3>
+                                <p className="text-sm text-white/60 leading-relaxed text-balance group-hover:text-white transition-colors">
                                     {feature.description}
                                 </p>
                             </div>

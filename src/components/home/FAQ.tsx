@@ -43,17 +43,23 @@ export function FAQ() {
                     {faqs.map((faq, index) => (
                         <div
                             key={index}
-                            className="rounded-2xl border border-white/5 bg-white/5 overflow-hidden"
+                            className={`rounded-xl border transition-all duration-300 ${openIndex === index
+                                    ? "bg-white/10 border-primary/30 shadow-lg shadow-primary/5"
+                                    : "bg-white/5 border-white/5 hover:border-white/10"
+                                }`}
                         >
                             <button
                                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                                className="w-full flex items-center justify-between p-6 text-left hover:bg-white/5 transition-colors"
+                                className="w-full flex items-center justify-between p-6 text-left"
                             >
-                                <span className="font-medium text-white">{faq.question}</span>
-                                <ChevronDown
-                                    className={`text-white/50 transition-transform duration-300 ${openIndex === index ? "rotate-180" : ""
-                                        }`}
-                                />
+                                <span className={`font-heading font-semibold text-lg transition-colors ${openIndex === index ? "text-white" : "text-white/80"
+                                    }`}>
+                                    {faq.question}
+                                </span>
+                                <div className={`p-2 rounded-full transition-all duration-300 ${openIndex === index ? "bg-primary text-white rotate-180" : "bg-white/5 text-white/50"
+                                    }`}>
+                                    <ChevronDown size={20} />
+                                </div>
                             </button>
 
                             <AnimatePresence>
@@ -62,9 +68,9 @@ export function FAQ() {
                                         initial={{ height: 0, opacity: 0 }}
                                         animate={{ height: "auto", opacity: 1 }}
                                         exit={{ height: 0, opacity: 0 }}
-                                        transition={{ duration: 0.3 }}
+                                        transition={{ duration: 0.3, ease: "circOut" }}
                                     >
-                                        <div className="p-6 pt-0 text-white/60 leading-relaxed border-t border-white/5">
+                                        <div className="p-6 pt-0 text-white/70 leading-relaxed text-balance border-t border-white/5 mt-2">
                                             {faq.answer}
                                         </div>
                                     </motion.div>

@@ -8,7 +8,7 @@ import { HeroVisual } from "./HeroVisual";
 
 export function Hero() {
     return (
-        <section className="relative overflow-hidden pt-32 pb-16 lg:pt-48 lg:pb-32">
+        <section className="relative overflow-hidden pt-24 pb-16 lg:pt-32 lg:pb-32">
             {/* Background gradients */}
             <div className="absolute top-0 left-1/2 -ml-[50vw] h-[50rem] w-[100vw] -translate-y-1/2 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/20 via-primary/5 to-transparent blur-3xl" />
 
