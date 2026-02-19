@@ -8,20 +8,24 @@ import { ChevronDown } from "lucide-react";
 
 const faqs = [
     {
-        question: "How often should I use the Ultraease device?",
-        answer: "For best results, we recommend using the device 2-3 times per week on the affected area. Each session usually lasts about 10 minutes."
+        question: "Does the device vibrate?",
+        answer: "No. Ultraease uses physiological ultrasound waves which are completely vibration-free and silent. You will not feel a buzz, but rather a gentle, deep warming sensation in the tissue after 1-2 minutes."
     },
     {
-        question: "Is it safe to use on all body parts?",
-        answer: "Ultraease is safe for most body parts including back, neck, shoulders, arms, and legs. Avoid using directly on eyes, heart, or open wounds. Consult the manual for a detailed safety map."
+        question: "Can I use creams or gels with it?",
+        answer: "Yes! This is called Phonophoresis. You can use your favorite pain relief gels, ointments, or skincare serums (like Hyaluron). The ultrasound helps the active ingredients absorb deeper into the tissue for better effect."
     },
     {
-        question: "Does it vibrate?",
-        answer: "No, Ultraease uses ultrasonic waves which are vibration-free and silent. You will feel a gentle warming sensation deep within the tissue."
+        question: "Is it safe for home use?",
+        answer: "Absolutely. It is designed for home therapy with an automatic switch-off timer (10 minutes) and controlled intensity levels (Low to High). However, avoid using on open wounds, eyes, or directly over the heart."
     },
     {
-        question: "Can I use my own creams?",
-        answer: "Yes! Phonephoresis allows you to use your favorite pain relief gels or skincare serums. The ultrasound helps deeper absorption of active ingredients."
+        question: "How long is the battery life?",
+        answer: "The device is 100% wireless and the Lithium-Ion battery lasts for at least 2-3 full applications (approx. 30 mins total) per charge, depending on the intensity level used."
+    },
+    {
+        question: "What are the specific intensity levels?",
+        answer: "There are 3 levels: Low (0.29 W/cm²), Medium (0.44 W/cm²), and High (0.53 W/cm²). This allows you to treat different body parts safely."
     }
 ];
 

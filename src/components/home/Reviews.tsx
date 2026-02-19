@@ -7,34 +7,40 @@ import { Star } from "lucide-react";
 
 const reviews = [
     {
-        name: "Johanna Baumann",
-        role: "Verified Buyer",
-        content: "After a long day in the garden, the Ultraease helps me relax. It's like having a personal wellness session at home.",
-        initials: "JB"
+        name: "Insider",
+        role: "Verified Purchase",
+        content: "A good investment for quality of life! Since using it for my polyneuropathy pain, my life quality has improved significantly. Easy to use and I feel a clear reduction in symptoms after just a few sessions.",
+        initials: "IN"
     },
     {
-        name: "Thomas Richter",
-        role: "Hiker",
-        content: "I've always struggled with tension. Thanks to Ultraease, I find quick relief after my hikes. A blessing for my active life.",
-        initials: "TR"
+        name: "Rene",
+        role: "Verified Purchase",
+        content: "Crazy device... The secret to eternal youth! I used it for back pain and saw immediate relief. Then I tried it for beauty with a moisture mask - the results for skin tightening were amazing.",
+        initials: "RE"
     },
     {
-        name: "Sandra Neumann",
-        role: "Office Worker",
-        content: "My relaxation anchor after stressful workdays. Loosens my muscles and lets me forget everyday life.",
-        initials: "SN"
+        name: "Leseratte",
+        role: "Verified Purchase",
+        content: "Very good device. The large metal head is perfect for the face and covers larger areas. I use it to work in my cosmetics and the results are super.",
+        initials: "LE"
     },
     {
-        name: "Michaela Krause",
-        role: "Yoga Instructor",
-        content: "Since using Ultraease, my yoga practice has improved. The tension in my back is gone!",
-        initials: "MK"
+        name: "Gertrude Heger",
+        role: "Verified Purchase",
+        content: "It works perfectly. You have to try it out to see if ultrasound is good for your specific complaints, but for me, it functions flawlessly.",
+        initials: "GH"
     },
     {
-        name: "Erwin Schmitz",
-        role: "Verified Buyer",
-        content: "Exceeded my expectations! First-class workmanship and the different modes offer individual treatment.",
-        initials: "ES"
+        name: "Francisco Javier",
+        role: "Verified Purchase",
+        content: "Very practical and manageable. Being wireless, you can take it anywhere. You feel a pleasant sensation of heat without burning. Great for my mother's knee osteoarthritis.",
+        initials: "FJ"
+    },
+    {
+        name: "Jens Stührmann",
+        role: "Verified Purchase",
+        content: "Great device, easy to operate and does my ankle osteoarthritis a lot of good.",
+        initials: "JS"
     }
 ];
 

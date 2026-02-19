@@ -3,28 +3,28 @@
 
 import { Container } from "@/components/ui/Container";
 import { motion } from "framer-motion";
-import { Thermometer, Zap, Activity, Waves } from "lucide-react";
+import { Zap, Waves, Sparkles, ShieldCheck } from "lucide-react";
 
 const features = [
     {
-        name: "Vibration-Free Therapy",
-        description: "Deep tissue stimulation without uncomfortable vibrations. Perfect for sensitive areas.",
+        name: "Silent & Vibration-Free",
+        description: "Pure ultrasonic waves treat deep tissue without mechanical vibration. 100% silent operation for true relaxation.",
         icon: Waves,
     },
     {
-        name: "Therapeutic Heat",
-        description: "Gentle warming effect develops after 1-2 minutes, promoting blood flow and relaxation.",
-        icon: Thermometer,
+        name: "2-in-1 Care & Regeneration",
+        description: "Phonophoresis technology helps creams and serums absorb deeper for pain relief or beauty treatments.",
+        icon: Sparkles,
     },
     {
         name: "Wireless Freedom",
-        description: "Built-in rechargeable battery allows for treatment anywhere, anytime.",
+        description: "Powerful Li-Ion battery (2-3 sessions per charge) for on-the-go therapy. Treat yourself anywhere.",
         icon: Zap,
     },
     {
-        name: "Pain Management",
-        description: "Effective relief for muscle tension, joint pain, and chronic discomfort.",
-        icon: Activity,
+        name: "German Quality",
+        description: "Engineered to strict standards. Includes 4 relaxation audio guides for a holistic healing experience.",
+        icon: ShieldCheck,
     },
 ];
 
