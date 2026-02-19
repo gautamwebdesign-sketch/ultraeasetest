@@ -1,5 +1,4 @@
 import { HTMLAttributes, forwardRef } from "react";
-import styles from "./Container.module.css";
 import { cn } from "@/lib/utils";
 
 interface ContainerProps extends HTMLAttributes<HTMLDivElement> { }
@@ -9,7 +8,7 @@ const Container = forwardRef<HTMLDivElement, ContainerProps>(
         return (
             <div
                 ref={ref}
-                className={cn(styles.container, className)}
+                className={cn("mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8", className)}
                 {...props}
             />
         );
