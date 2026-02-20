@@ -5,7 +5,7 @@ import { Container } from "@/components/ui/Container";
 import { Navbar, Footer } from "@/components/layout";
 import { notFound } from "next/navigation";
 
-export const revalidate = 3600; // Revalidate every hour
+export const dynamic = 'force-dynamic';
 
 export default async function ProductPage({ params }: { params: { handle: string } }) {
     const products = await getProducts();
