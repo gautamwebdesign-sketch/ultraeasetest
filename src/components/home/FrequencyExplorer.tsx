@@ -138,7 +138,7 @@ export function FrequencyExplorer() {
                     <div className="relative h-[600px] bg-[#121F26] rounded-3xl border border-white/5 overflow-hidden flex items-center justify-center p-8">
 
                         {/* Abstract Body Silhouette */}
-                        <svg viewBox="0 0 100 100" className="h-[80%] opacity-20" preserveAspectRatio="xMidYMin meet">
+                        <svg viewBox="0 0 100 100" className="h-[80%] opacity-50 text-white/20 drop-shadow-lg" preserveAspectRatio="xMidYMin meet">
                             {/* Head & Neck */}
                             <path d="M50 5 C45 5, 42 10, 42 15 C42 18, 44 21, 46 22 L46 26 L54 26 L54 22 C56 21, 58 18, 58 15 C58 10, 55 5, 50 5 Z" fill="currentColor" />
                             {/* Torso */}

@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import { Container } from "@/components/ui/Container";
+import { Thermometer } from "lucide-react";
 
 const steps = [
     {
@@ -40,7 +41,23 @@ export function TissueDepthVisualiser() {
                 <Container className="grid grid-cols-1 lg:grid-cols-2 gap-12 w-full h-[60vh] lg:h-[80vh]">
 
                     {/* Left: Animation */}
-                    <div className="relative h-full bg-white rounded-3xl border border-black/5 overflow-hidden flex flex-col justify-end p-8 lg:p-12">
+                    <div className="relative h-full bg-white rounded-3xl border border-black/5 overflow-hidden flex flex-col justify-end p-8 lg:p-12 shadow-sm">
+
+                        {/* Header/Legend */}
+                        <div className="absolute top-6 left-6 lg:top-8 lg:left-8 z-20">
+                            <h4 className="font-heading text-lg lg:text-xl text-deep-charcoal flex items-center gap-2 bg-white/80 backdrop-blur-sm p-2 rounded-xl border border-black/5">
+                                <Thermometer className="text-amber-glow w-5 h-5 lg:w-6 lg:h-6" />
+                                Tissue Depth & Heat Level
+                            </h4>
+                        </div>
+
+                        {/* Footnote */}
+                        <div className="absolute bottom-6 left-6 right-6 z-20 text-center">
+                            <p className="text-[10px] lg:text-xs text-deep-charcoal/60 font-sans tracking-wide bg-white/60 backdrop-blur-md py-2 px-4 rounded-full inline-block border border-black/5 shadow-sm">
+                                <span className="text-amber-glow font-bold mr-1">*</span>
+                                Orange glow indicates deep penetrating warmth while surface skin remains cool.
+                            </p>
+                        </div>
 
                         {/* Anatomical Diagram Background */}
                         <div className="absolute inset-0 flex flex-col justify-between py-12 px-8 z-0 opacity-40">

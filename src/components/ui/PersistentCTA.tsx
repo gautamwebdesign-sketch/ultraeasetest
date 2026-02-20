@@ -26,10 +26,9 @@ export function PersistentCTA() {
             <Button
                 size="lg"
                 className="h-12 px-8 rounded-full bg-deep-teal text-white hover:bg-mid-teal hover:scale-105 shadow-xl transition-all duration-300 font-medium tracking-wide flex items-center gap-2 group"
-                onClick={() => window.open("https://amazon.com", "_blank")}
+                onClick={() => window.location.href = "/product/ultraease"}
             >
-                View on Amazon
-                <ExternalLink size={16} className="opacity-70 group-hover:translate-x-1 transition-transform" />
+                Buy Now
             </Button>
         </div>
     );

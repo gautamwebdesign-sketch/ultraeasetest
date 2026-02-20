@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Activity, Zap, TrendingUp, Sparkles, Droplets, Sun } from "lucide-react";
 
 export function TwoPaths() {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -13,9 +13,9 @@ export function TwoPaths() {
             subtitle: "For the body",
             bgClass: "bg-[#E6EBEF]", // Cool blue-grey tint based on brand
             bullets: [
-                "Relieve deep muscle tension",
-                "Soothe chronic joint pain",
-                "Accelerate post-exercise recovery"
+                { text: "Relieve deep muscle tension", icon: Activity },
+                { text: "Soothe chronic joint pain", icon: Zap },
+                { text: "Accelerate post-exercise recovery", icon: TrendingUp }
             ]
         },
         {
@@ -23,9 +23,9 @@ export function TwoPaths() {
             subtitle: "For the face",
             bgClass: "bg-warm-stone/50", // Warm cream tint (warm-stone with opacity or solid)
             bullets: [
-                "Stimulate natural collagen",
-                "Enhance product absorption",
-                "Tighten and tone facial skin"
+                { text: "Stimulate natural collagen", icon: Sparkles },
+                { text: "Enhance product absorption", icon: Droplets },
+                { text: "Tighten and tone facial skin", icon: Sun }
             ]
         }
     ];
@@ -52,11 +52,6 @@ export function TwoPaths() {
                         transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
                         onMouseEnter={() => setHoveredIndex(index)}
                         onMouseLeave={() => setHoveredIndex(null)}
-                        onClick={() => {
-                            // On mobile, click could toggle expand/collapse, but let's rely on hover/focus or basic flex for desktop
-                            // Scroll to Amazon CTA or show modal? Brief says "Explore -> button".
-                            // For V1.0, they all lead to amazon, or scroll down. Let's just make it look clickable.
-                        }}
                     >
                         <div className="max-w-md mx-auto w-full">
                             <motion.p
@@ -83,21 +78,23 @@ export function TwoPaths() {
                                 transition={{ duration: 0.4 }}
                                 className="overflow-hidden"
                             >
-                                <ul className="space-y-4 mb-12">
+                                <ul className="space-y-6 mb-12">
                                     {path.bullets.map((bullet, i) => (
-                                        <li key={i} className="flex items-start gap-4 text-deep-charcoal/80 font-sans text-lg">
-                                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-deep-teal shrink-0" />
-                                            {bullet}
+                                        <li key={i} className="flex items-center gap-5 text-deep-charcoal/80 font-sans text-lg">
+                                            <div className="w-10 h-10 rounded-full bg-deep-teal/10 flex items-center justify-center shrink-0">
+                                                <bullet.icon className="w-5 h-5 text-deep-teal" />
+                                            </div>
+                                            {bullet.text}
                                         </li>
                                     ))}
                                 </ul>
 
-                                <button className="flex items-center gap-2 group/btn">
+                                <a href="/technology" className="flex items-center gap-2 group/btn w-fit">
                                     <span className="font-medium text-deep-teal border-b-2 border-transparent group-hover/btn:border-deep-teal transition-all pb-0.5">
-                                        Explore
+                                        Explore the Science
                                     </span>
                                     <ArrowRight className="text-deep-teal w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                                </button>
+                                </a>
                             </motion.div>
                         </div>
                     </motion.div>

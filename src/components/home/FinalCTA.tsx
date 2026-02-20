@@ -30,13 +30,16 @@ export function FinalCTA() {
                     </div>
 
                     {/* Main CTA */}
-                    <button className="group relative inline-flex items-center justify-center w-full sm:w-auto px-12 py-6 bg-deep-teal rounded-full overflow-hidden hover:scale-105 transition-transform duration-300">
+                    <button
+                        onClick={() => window.location.href = "/product/ultraease"}
+                        className="group relative inline-flex items-center justify-center w-full sm:w-auto px-12 py-6 bg-deep-teal rounded-full overflow-hidden hover:scale-105 transition-transform duration-300"
+                    >
                         {/* Button Glow/Hover Effect */}
                         <div className="absolute inset-0 bg-gradient-to-r from-deep-teal via-mid-teal to-deep-teal opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         <div className="absolute -inset-1 bg-amber-glow/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full" />
 
                         <span className="relative z-10 font-sans font-medium text-lg text-white flex items-center gap-3">
-                            View on Amazon
+                            Buy Now
                             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </span>
                     </button>
@@ -44,7 +47,7 @@ export function FinalCTA() {
                     {/* Guarantee Callout */}
                     <div className="mt-12 flex items-center justify-center gap-3 text-white/50 font-sans text-sm">
                         <ShieldCheck size={18} className="text-mid-teal" />
-                        <p>30-Day Satisfaction Guarantee. Free returns via Amazon.</p>
+                        <p>30-Day Satisfaction Guarantee. Free returns available.</p>
                     </div>
                 </motion.div>
             </Container>
