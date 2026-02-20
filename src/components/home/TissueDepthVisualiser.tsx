@@ -8,17 +8,17 @@ import { Thermometer } from "lucide-react";
 const steps = [
     {
         title: "Surface Remains Cool",
-        desc: "The surface feels nothing. No heat, no vibration.",
+        desc: "Traditional heat pads and creams warm the skin — and stop there. The epidermis and dermis absorb the heat before it can travel any deeper. You feel warmth on the surface, but the tension in your muscle and fascia remains completely untouched.\n\nUltraease produces no surface heat at all. The skin stays cool. That's not a limitation — it's the point.",
         layerIndex: 0
     },
     {
         title: "The Ultrasound Wave",
-        desc: "The wave moves through tissue, converting as it goes deeper.",
+        desc: "Ultrasound waves are sound energy — not heat. At this frequency, they pass straight through the upper tissue layers without being absorbed. The epidermis, dermis, and subcutaneous fat offer no resistance.\n\nThis is why you feel nothing on the surface while the device is working. The energy isn't stopping here. It's travelling.",
         layerIndex: 1
     },
     {
         title: "Warmth From Within",
-        desc: "Here the sound wave becomes heat. Right at the source.",
+        desc: "When the ultrasound wave reaches the dense tissue of your fascia and deep muscle, it finally meets resistance. That resistance is where the conversion happens — sound energy becomes thermal energy, generating a deep, sustained warmth exactly where the tension lives.\n\nThis is what a heat pad cannot do. This is what a massage gun cannot do. The warmth begins at the source, not the surface.",
         layerIndex: 2
     }
 ];
