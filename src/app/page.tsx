@@ -10,14 +10,12 @@ import { Reviews } from "@/components/home/Reviews";
 import { StillnessMoment } from "@/components/home/StillnessMoment";
 import { ScienceAccordion } from "@/components/home/ScienceAccordion";
 import { FinalCTA } from "@/components/home/FinalCTA";
-import { PersistentCTA } from "@/components/ui/PersistentCTA";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-warm-ivory selection:bg-amber-glow/20">
       <Navbar />
       <Hero />
-      <PersistentCTA />
 
       {/* Narrative & Education */}
       <ProblemRecognition />

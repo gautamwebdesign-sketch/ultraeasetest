@@ -25,23 +25,24 @@ export function Navbar() {
                 : "bg-transparent py-6"
         )}>
             <Container className="flex items-center justify-between">
-                <Link href="/" className={cn(
-                    "text-2xl font-bold font-heading transition-colors duration-300",
-                    scrolled ? "text-deep-charcoal" : "text-white"
-                )}>
-                    Ultraease
+                <Link href="/" className="text-2xl transition-opacity duration-300 hover:opacity-80 flex items-center">
+                    <span className="font-heading font-bold text-[#17bbb0]">Ultra</span>
+                    <span className={cn(
+                        "font-sans font-light tracking-wide transition-colors duration-300",
+                        scrolled ? "text-deep-charcoal" : "text-white"
+                    )}>ease</span>
                 </Link>
 
-                {/* Mobile/Traditional Nav (Hidden on desktop per V1.0 brief, but kept for mobile/fallback) */}
+                {/* Mobile/Traditional Nav */}
                 <nav className="hidden md:block">
-                    <ul className="flex items-center gap-8">
+                    <ul className="flex items-center gap-10">
                         {["Overview", "Features", "Specs", "About"].map((item) => (
                             <li key={item}>
                                 <Link
                                     href={`#${item.toLowerCase()}`}
                                     className={cn(
-                                        "text-sm font-medium transition-colors duration-300",
-                                        scrolled ? "text-deep-charcoal/70 hover:text-deep-teal" : "text-white/70 hover:text-white"
+                                        "text-base font-medium transition-colors duration-300",
+                                        scrolled ? "text-deep-charcoal/70 hover:text-[#17bbb0]" : "text-white/80 hover:text-white"
                                     )}
                                 >
                                     {item}

@@ -30,7 +30,7 @@ export function TissueDepthVisualiser() {
         offset: ["start start", "end end"]
     });
 
-    const signalDepth = useTransform(scrollYProgress, [0, 0.4, 0.8], ["10%", "50%", "85%"]);
+    const signalDepth = useTransform(scrollYProgress, [0, 0.4, 0.8], ["10%", "50%", "100%"]);
     const deepWarmthOpacity = useTransform(scrollYProgress, [0.6, 0.8], [0, 1]);
     const deepWarmthScale = useTransform(scrollYProgress, [0.6, 0.8, 1], [0.8, 1, 1.1]);
     const signalOpacity = useTransform(scrollYProgress, [0.7, 0.9], [1, 0]);
@@ -75,48 +75,54 @@ export function TissueDepthVisualiser() {
                             </div>
                         </div>
 
-                        {/* Literal Thermometer Visual */}
-                        <div className="absolute left-1/2 -translate-x-1/2 top-[12%] bottom-[18%] w-10 lg:w-12 z-10 flex flex-col items-center">
-                            {/* Glass Tube */}
-                            <div className="w-full h-full bg-white/40 backdrop-blur-md rounded-full border border-white/60 shadow-[inset_0_2px_12px_rgba(0,0,0,0.05)] p-1.5 z-10 flex flex-col justify-end relative overflow-hidden ring-1 ring-[#17bbb0]/20">
+                        {/* Cohesive Thermometer Visual */}
+                        <div className="absolute left-1/2 -translate-x-1/2 top-[12%] bottom-[16%] w-20 z-10 flex flex-col items-center">
 
-                                {/* Inner Fluid Level (Animated) */}
-                                <motion.div
-                                    className="w-full bg-gradient-to-t from-[#17bbb0] to-[#14a096] rounded-full relative z-20"
-                                    style={{ height: signalDepth }} // 10% -> 85%
-                                >
-                                    {/* Fluid Surface Highlight */}
-                                    <div className="absolute top-1 left-1/2 -translate-x-1/2 w-4 h-1.5 bg-white/60 rounded-full shadow-[0_0_8px_rgba(255,255,255,0.8)]" />
-                                    {/* Fluid Core Highlight running down */}
-                                    <div className="absolute right-2 top-4 bottom-2 w-1 bg-white/20 rounded-full blur-[0.5px]" />
-                                </motion.div>
-
-                                {/* Measurement Ticks */}
-                                <div className="absolute left-0 top-0 bottom-0 py-10 flex flex-col justify-between pointer-events-none z-30">
-                                    {Array.from({ length: 8 }).map((_, i) => (
-                                        <div key={i} className="w-2.5 h-[1.5px] bg-[#17bbb0]/30" />
-                                    ))}
-                                </div>
-                            </div>
-
-                            {/* Bulb Base */}
-                            <div className="w-20 h-20 lg:w-24 lg:h-24 bg-white/40 backdrop-blur-md rounded-full border border-white/60 shadow-[inset_0_2px_12px_rgba(0,0,0,0.05),_0_8px_32px_rgba(23,187,176,0.15)] -mt-6 z-0 flex items-center justify-center p-2.5 relative ring-1 ring-[#17bbb0]/20">
-                                {/* Base Bulb Fluid */}
-                                <div className="absolute inset-2.5 bg-[#17bbb0] rounded-full shadow-[inset_-4px_-4px_12px_rgba(0,0,0,0.15),_inset_4px_4px_12px_rgba(255,255,255,0.3)] flex items-center justify-center overflow-hidden">
-                                    <div className="absolute top-2 left-3 w-4 h-4 bg-white/30 rounded-full blur-[1px]" />
-
-                                    {/* Active Heat Glow (Amber) */}
+                            {/* The Glass Housing (Outer container for tube + bulb) */}
+                            <div className="relative w-full h-full flex flex-col items-center">
+                                {/* Tube Section */}
+                                <div className="w-10 flex-1 bg-white/40 backdrop-blur-md rounded-t-full border-x border-t border-white/60 shadow-[inset_0_2px_12px_rgba(0,0,0,0.05)] p-1.5 z-10 relative overflow-hidden pb-10">
+                                    {/* Flowing Medium (Top to Bottom) */}
                                     <motion.div
-                                        className="absolute inset-0 bg-amber-glow mix-blend-screen"
-                                        style={{ opacity: deepWarmthOpacity }}
-                                    />
+                                        className="w-full bg-gradient-to-b from-[#14a096] to-[#17bbb0] rounded-b-full rounded-t-full relative z-20"
+                                        style={{ height: signalDepth }}
+                                    >
+                                        <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-4 h-1.5 bg-white/60 rounded-full shadow-[0_0_8px_rgba(255,255,255,0.8)]" />
+                                        <div className="absolute right-1.5 top-2 bottom-4 w-0.5 bg-white/30 rounded-full blur-[0.5px]" />
+                                    </motion.div>
+
+                                    {/* Ticks */}
+                                    <div className="absolute left-0 top-6 bottom-16 flex flex-col justify-between pointer-events-none z-30">
+                                        {Array.from({ length: 8 }).map((_, i) => (
+                                            <div key={i} className="w-2.5 h-[1.5px] bg-[#17bbb0]/30" />
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Bulb Section (Overlaps the tube seamlessly) */}
+                                <div className="w-20 h-20 bg-white/40 backdrop-blur-md rounded-full border border-white/60 shadow-[inset_0_2px_12px_rgba(0,0,0,0.05),_0_8px_32px_rgba(23,187,176,0.15)] -mt-10 z-20 flex items-center justify-center p-2.5 relative">
+                                    <div className="absolute inset-2 bg-white/60 rounded-full flex items-center justify-center overflow-hidden shadow-[inset_-4px_-4px_12px_rgba(0,0,0,0.1),_inset_4px_4px_12px_rgba(255,255,255,0.5)]">
+                                        <div className="absolute top-2 left-3 w-4 h-4 bg-white/60 rounded-full blur-[1px] z-30" />
+
+                                        {/* Bulb Fill matching the flow */}
+                                        <motion.div
+                                            className="absolute inset-0 bg-[#17bbb0]"
+                                            style={{ opacity: deepWarmthOpacity }}
+                                        />
+
+                                        {/* Amber Glow inside Bulb */}
+                                        <motion.div
+                                            className="absolute inset-0 bg-amber-glow mix-blend-screen"
+                                            style={{ opacity: deepWarmthOpacity }}
+                                        />
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                         {/* Ambient Deep Warmth (Background Aura) */}
                         <motion.div
-                            className="absolute bottom-[10%] left-1/2 -translate-x-1/2 w-48 sm:w-64 h-32 bg-amber-glow/30 blur-[40px] rounded-full z-0 mix-blend-multiply pointer-events-none"
+                            className="absolute bottom-[10%] left-1/2 -translate-x-1/2 w-48 sm:w-64 h-32 bg-amber-glow/40 blur-[40px] rounded-full z-0 mix-blend-multiply pointer-events-none"
                             style={{
                                 opacity: deepWarmthOpacity,
                                 scale: deepWarmthScale
@@ -125,8 +131,8 @@ export function TissueDepthVisualiser() {
 
                         {/* Footnote positioned at bottom left */}
                         <div className="absolute bottom-6 left-6 right-6 lg:right-auto z-30">
-                            <p className="text-[10px] text-deep-charcoal/60 font-sans tracking-wide bg-white/80 backdrop-blur-md py-2 px-4 rounded-xl inline-block border border-black/5 shadow-sm">
-                                <span className="text-amber-glow font-bold mr-1.5 inline-block animate-pulse">●</span>
+                            <p className="text-xs sm:text-sm text-deep-charcoal/80 font-sans tracking-wide bg-white/90 backdrop-blur-md py-3 px-5 rounded-xl inline-block border border-black/5 shadow-sm font-medium">
+                                <span className="text-amber-glow font-bold mr-2 inline-block animate-pulse">●</span>
                                 Thermal energy deeply penetrates tissue
                             </p>
                         </div>
