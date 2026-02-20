@@ -7,19 +7,19 @@ import { Thermometer } from "lucide-react";
 
 const steps = [
     {
-        title: "Deep Muscle Activation",
-        desc: "When the ultrasound waves hit the dense tissue of your fascia and deep muscle, the kinetic energy converts into deep, soothing warmth directly where you need it.",
-        layerIndex: 2
+        title: "Surface Heat Stops Here",
+        desc: "Traditional heating pads and creams only warm the epidermis and dermis. The heat dissipates before it can reach the source of the problem.",
+        layerIndex: 0
     },
     {
         title: "The Ultrasound Wave",
-        desc: "Ultraease sends high-frequency sound waves that bypass the surface layers entirely. You feel nothing on the skin, but the energy is traveling upwards.",
+        desc: "Ultraease sends high-frequency sound waves that bypass the surface layers entirely. You feel nothing on the skin, but the energy is traveling deeper.",
         layerIndex: 1
     },
     {
-        title: "Surface Remains Cool",
-        desc: "Unlike traditional heating pads that burn the surface, the epidermis and dermis remain comfortably cool while the therapeutic heat works from within.",
-        layerIndex: 0
+        title: "Warmth From Within",
+        desc: "When the waves hit the dense tissue of your fascia and deep muscle, the kinetic energy converts into deep, soothing warmth directly where you need it.",
+        layerIndex: 2
     }
 ];
 
@@ -30,12 +30,12 @@ export function TissueDepthVisualiser() {
         offset: ["start start", "end end"]
     });
 
-    // Reversed Logic: Starts 10% (bottom bulb full, tube empty) -> Grows UPWARDS to 100% (surface)
-    const signalDepth = useTransform(scrollYProgress, [0, 0.5, 1], ["10%", "50%", "100%"]);
+    // Correct Logic: Starts TOP (Epidermis) -> Travels DOWN to 100% (Deep Muscle)
+    const signalDepth = useTransform(scrollYProgress, [0, 0.4, 0.8], ["10%", "50%", "100%"]);
 
-    // Deep warmth is strongest at the START (Deep Muscle), fades out as we move UP to surface
-    const deepWarmthOpacity = useTransform(scrollYProgress, [0, 0.4, 0.8], [1, 0.5, 0]);
-    const deepWarmthScale = useTransform(scrollYProgress, [0, 0.5, 1], [1.1, 1, 0.8]);
+    // Deep warmth is ONLY visible when it reaches the bottom (Deep Muscle)
+    const deepWarmthOpacity = useTransform(scrollYProgress, [0.6, 0.8], [0, 1]);
+    const deepWarmthScale = useTransform(scrollYProgress, [0.6, 0.8, 1], [0.8, 1, 1.1]);
 
     return (
         <section ref={containerRef} className="relative h-[300vh] bg-warm-ivory">
@@ -58,7 +58,7 @@ export function TissueDepthVisualiser() {
                             </div>
                         </div>
 
-                        {/* Anatomical Diagram Background - Reversed Order */}
+                        {/* Anatomical Diagram Background - Correct Order (Top to Bottom) */}
                         <div className="absolute inset-0 flex flex-col justify-between py-16 px-6 lg:px-12 z-0 opacity-40">
                             <div className="border-b border-deep-charcoal/20 border-dashed w-full relative">
                                 <span className="absolute -top-5 left-0 text-[10px] font-sans text-deep-charcoal font-bold uppercase tracking-[0.2em] hidden sm:block">Epidermis</span>
@@ -77,19 +77,19 @@ export function TissueDepthVisualiser() {
                             </div>
                         </div>
 
-                        {/* Cohesive Thermometer Visual (Fills Upwards) */}
+                        {/* Cohesive Thermometer Visual (Travels Downwards) */}
                         <div className="absolute left-1/2 -translate-x-1/2 top-[12%] bottom-[16%] w-20 z-10 flex flex-col items-center">
 
                             {/* The Glass Housing */}
                             <div className="relative w-full h-full flex flex-col items-center">
                                 {/* Tube Section */}
-                                <div className="w-10 flex-1 bg-white/40 backdrop-blur-md rounded-t-full border-x border-t border-white/60 shadow-[inset_0_2px_12px_rgba(0,0,0,0.05)] p-1.5 z-10 relative overflow-hidden pb-10 flex flex-col justify-end">
-                                    {/* Flowing Medium (Grows Bottom to Top) */}
+                                <div className="w-10 flex-1 bg-white/40 backdrop-blur-md rounded-t-full border-x border-t border-white/60 shadow-[inset_0_2px_12px_rgba(0,0,0,0.05)] p-1.5 z-10 relative overflow-hidden pb-10 flex flex-col justify-start">
+                                    {/* Flowing Medium (Grows Top to Bottom) */}
                                     <motion.div
-                                        className="w-full bg-gradient-to-t from-[#14a096] to-[#17bbb0] rounded-b-full rounded-t-full relative z-20 origin-bottom"
+                                        className="w-full bg-gradient-to-b from-[#14a096] to-[#17bbb0] rounded-b-full rounded-t-full relative z-20 origin-top"
                                         style={{ height: signalDepth }}
                                     >
-                                        <div className="absolute top-1 left-1/2 -translate-x-1/2 w-4 h-1.5 bg-white/60 rounded-full shadow-[0_0_8px_rgba(255,255,255,0.8)]" />
+                                        <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-4 h-1.5 bg-white/60 rounded-full shadow-[0_0_8px_rgba(255,255,255,0.8)]" />
                                         <div className="absolute right-1.5 top-2 bottom-4 w-0.5 bg-white/30 rounded-full blur-[0.5px]" />
                                     </motion.div>
 
@@ -106,10 +106,13 @@ export function TissueDepthVisualiser() {
                                     <div className="absolute inset-2 bg-white/60 rounded-full flex items-center justify-center overflow-hidden shadow-[inset_-4px_-4px_12px_rgba(0,0,0,0.1),_inset_4px_4px_12px_rgba(255,255,255,0.5)]">
                                         <div className="absolute top-2 left-3 w-4 h-4 bg-white/60 rounded-full blur-[1px] z-30" />
 
-                                        {/* Bulb is always full, acts as the base */}
-                                        <div className="absolute inset-0 bg-[#17bbb0]" />
+                                        {/* Bulb only fills when signal reaches bottom */}
+                                        <motion.div
+                                            className="absolute inset-0 bg-[#17bbb0]"
+                                            style={{ opacity: deepWarmthOpacity }}
+                                        />
 
-                                        {/* Amber Glow inside Bulb (fades as heat travels up) */}
+                                        {/* Amber Glow inside Bulb (Fires at bottom) */}
                                         <motion.div
                                             className="absolute inset-0 bg-amber-glow mix-blend-screen"
                                             style={{ opacity: deepWarmthOpacity }}
@@ -119,7 +122,7 @@ export function TissueDepthVisualiser() {
                             </div>
                         </div>
 
-                        {/* Ambient Deep Warmth (Background Aura) - Starts strong, fades out */}
+                        {/* Ambient Deep Warmth (Background Aura) - Fires at bottom */}
                         <motion.div
                             className="absolute bottom-[10%] left-1/2 -translate-x-1/2 w-48 sm:w-64 h-32 bg-amber-glow/40 blur-[40px] rounded-full z-0 mix-blend-multiply pointer-events-none"
                             style={{
@@ -132,7 +135,7 @@ export function TissueDepthVisualiser() {
                         <div className="absolute bottom-6 left-6 right-6 lg:right-auto z-30">
                             <p className="text-xs sm:text-sm text-deep-charcoal/80 font-sans tracking-wide bg-white/90 backdrop-blur-md py-3 px-5 rounded-xl inline-block border border-black/5 shadow-sm font-medium">
                                 <span className="text-amber-glow font-bold mr-2 inline-block animate-pulse">●</span>
-                                Heat begins at the source
+                                Thermal energy deeply penetrates tissue
                             </p>
                         </div>
                     </div>
