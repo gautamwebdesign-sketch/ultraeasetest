@@ -32,7 +32,7 @@ export function FinalCTA() {
 
                     {/* Main CTA */}
                     <Link
-                        href="/product/ultraease"
+                        href="/product/ultrasonic-physiological-therapy"
                         className="group relative inline-flex items-center justify-center w-full sm:w-auto px-12 py-6 bg-deep-teal rounded-full overflow-hidden hover:scale-105 transition-transform duration-300"
                     >
                         {/* Button Glow/Hover Effect */}

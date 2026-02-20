@@ -56,7 +56,7 @@ export function Navbar() {
                     <Button
                         size="sm"
                         variant="primary"
-                        href="/product/ultraease"
+                        href="/product/ultrasonic-physiological-therapy"
                         className={cn(
                             "transition-all duration-300",
                             scrolled ? "bg-deep-teal text-white hover:bg-mid-teal" : "bg-white/10 text-white hover:bg-white/20 border border-white/20"
