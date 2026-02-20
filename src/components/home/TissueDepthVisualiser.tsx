@@ -75,42 +75,48 @@ export function TissueDepthVisualiser() {
                             </div>
                         </div>
 
-                        {/* Animated Signal (Target: #17bbb0 Glowing Arcs) */}
-                        <motion.div
-                            className="absolute left-1/2 -translate-x-1/2 top-0 flex flex-col items-center z-10"
-                            style={{
-                                height: signalDepth,
-                                opacity: signalOpacity
-                            }}
-                        >
-                            {/* Device Head */}
-                            <div className="w-20 lg:w-24 h-12 bg-white border-b border-x border-[#17bbb0]/20 rounded-b-full shadow-[0_12px_24px_rgba(23,187,176,0.1)] absolute top-0 -translate-y-px z-20 flex justify-center items-end pb-2">
-                                <div className="w-8 h-1 rounded-full bg-[#17bbb0]/40" />
-                            </div>
+                        {/* Literal Thermometer Visual */}
+                        <div className="absolute left-1/2 -translate-x-1/2 top-[12%] bottom-[18%] w-10 lg:w-12 z-10 flex flex-col items-center">
+                            {/* Glass Tube */}
+                            <div className="w-full h-full bg-white/40 backdrop-blur-md rounded-full border border-white/60 shadow-[inset_0_2px_12px_rgba(0,0,0,0.05)] p-1.5 z-10 flex flex-col justify-end relative overflow-hidden ring-1 ring-[#17bbb0]/20">
 
-                            {/* Beam */}
-                            <div className="w-12 lg:w-16 h-full border-x border-[#17bbb0]/20 bg-gradient-to-b from-[#17bbb0]/5 to-[#17bbb0]/20 relative mt-12 overflow-hidden">
-                                {/* Animated scanning lines inside beam */}
+                                {/* Inner Fluid Level (Animated) */}
                                 <motion.div
-                                    className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAiLz4KPHBhdGggZD0iTTAgNEw0IDBaIiBzdHJva2U9IiMxN2JiYjAiIHN0cm9rZS1vcGFjaXR5PSIwLjIiIHN0cm9rZS13aWR0aD0iMSIvPgo8L3N2Zz4=')] opacity-50"
-                                    animate={{ backgroundPositionY: ["0px", "100px"] }}
-                                    transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
-                                />
+                                    className="w-full bg-gradient-to-t from-[#17bbb0] to-[#14a096] rounded-full relative z-20"
+                                    style={{ height: signalDepth }} // 10% -> 85%
+                                >
+                                    {/* Fluid Surface Highlight */}
+                                    <div className="absolute top-1 left-1/2 -translate-x-1/2 w-4 h-1.5 bg-white/60 rounded-full shadow-[0_0_8px_rgba(255,255,255,0.8)]" />
+                                    {/* Fluid Core Highlight running down */}
+                                    <div className="absolute right-2 top-4 bottom-2 w-1 bg-white/20 rounded-full blur-[0.5px]" />
+                                </motion.div>
+
+                                {/* Measurement Ticks */}
+                                <div className="absolute left-0 top-0 bottom-0 py-10 flex flex-col justify-between pointer-events-none z-30">
+                                    {Array.from({ length: 8 }).map((_, i) => (
+                                        <div key={i} className="w-2.5 h-[1.5px] bg-[#17bbb0]/30" />
+                                    ))}
+                                </div>
                             </div>
 
-                            {/* Soundwave Arcs */}
-                            <motion.div
-                                animate={{ y: [0, 8, 0], opacity: [0.6, 1, 0.6], scale: [0.95, 1.05, 0.95] }}
-                                transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-                                className="w-24 lg:w-32 h-8 border-b-[3px] border-[#17bbb0] rounded-[100%] absolute bottom-0 shadow-[0_8px_24px_rgba(23,187,176,0.8)]"
-                            >
-                                <div className="absolute -inset-4 border-b-2 border-[#17bbb0]/40 rounded-[100%] top-2" />
-                            </motion.div>
-                        </motion.div>
+                            {/* Bulb Base */}
+                            <div className="w-20 h-20 lg:w-24 lg:h-24 bg-white/40 backdrop-blur-md rounded-full border border-white/60 shadow-[inset_0_2px_12px_rgba(0,0,0,0.05),_0_8px_32px_rgba(23,187,176,0.15)] -mt-6 z-0 flex items-center justify-center p-2.5 relative ring-1 ring-[#17bbb0]/20">
+                                {/* Base Bulb Fluid */}
+                                <div className="absolute inset-2.5 bg-[#17bbb0] rounded-full shadow-[inset_-4px_-4px_12px_rgba(0,0,0,0.15),_inset_4px_4px_12px_rgba(255,255,255,0.3)] flex items-center justify-center overflow-hidden">
+                                    <div className="absolute top-2 left-3 w-4 h-4 bg-white/30 rounded-full blur-[1px]" />
 
-                        {/* Deep Warmth (Amber Glow mapping to deep muscle) */}
+                                    {/* Active Heat Glow (Amber) */}
+                                    <motion.div
+                                        className="absolute inset-0 bg-amber-glow mix-blend-screen"
+                                        style={{ opacity: deepWarmthOpacity }}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Ambient Deep Warmth (Background Aura) */}
                         <motion.div
-                            className="absolute bottom-12 left-1/2 -translate-x-1/2 w-48 sm:w-64 h-32 bg-gradient-to-t from-amber-glow/80 to-amber-glow/0 blur-[40px] rounded-full z-0 mix-blend-multiply"
+                            className="absolute bottom-[10%] left-1/2 -translate-x-1/2 w-48 sm:w-64 h-32 bg-amber-glow/30 blur-[40px] rounded-full z-0 mix-blend-multiply pointer-events-none"
                             style={{
                                 opacity: deepWarmthOpacity,
                                 scale: deepWarmthScale

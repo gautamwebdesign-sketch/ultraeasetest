@@ -9,9 +9,9 @@ const config: Config = {
     theme: {
         extend: {
             colors: {
-                // V1.0 Palette
+                // V1.0 Palette (Updated with new primary brand color)
                 "deep-teal": "#1A4A5A",
-                "mid-teal": "#4A7C8E",
+                "mid-teal": "#17bbb0", // Primary Brand Color
                 "warm-ivory": "#FAF8F4",
                 "warm-stone": "#E8E0D8",
                 "amber-glow": "#D4956A",

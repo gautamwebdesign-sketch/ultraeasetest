@@ -60,12 +60,11 @@ export function Waveform() {
                 ctx.lineTo(x, y);
             }
 
-            // Gradient Stroke: Mid Teal to Amber Glow
-            // We create a gradient that moves with time or just spans the screen
+            // Gradient Stroke: Primary Brand Color (#17bbb0)
             const gradient = ctx.createLinearGradient(0, 0, canvas.width, 0);
-            gradient.addColorStop(0, "rgba(74, 124, 142, 0.2)"); // Mid Teal low opacity
-            gradient.addColorStop(0.5, "rgba(212, 149, 106, 0.6)"); // Amber Glow at crest (center)
-            gradient.addColorStop(1, "rgba(74, 124, 142, 0.2)"); // Mid Teal low opacity
+            gradient.addColorStop(0, "rgba(23, 187, 176, 0.1)"); // Primary low opacity
+            gradient.addColorStop(0.5, "rgba(23, 187, 176, 0.8)"); // Primary at crest (center)
+            gradient.addColorStop(1, "rgba(23, 187, 176, 0.1)"); // Primary low opacity
 
             ctx.strokeStyle = gradient;
             ctx.lineWidth = 4;
@@ -73,10 +72,9 @@ export function Waveform() {
             ctx.lineJoin = "round";
             ctx.stroke();
 
-            // Optional: Add a subtle fill below for depth? Brief says "Slow sinusoidal wave".
-            // Let's keep it clean as a line for now, or add a very faint glow.
-            ctx.shadowBlur = 15;
-            ctx.shadowColor = "rgba(212, 149, 106, 0.4)"; // Amber glow shadow
+            // Glow effect
+            ctx.shadowBlur = 20;
+            ctx.shadowColor = "rgba(23, 187, 176, 0.5)"; // Primary glow shadow
 
             animationFrameId = requestAnimationFrame(animate);
         };
