@@ -39,7 +39,7 @@ export function FinalCTA() {
 
                             {/* Main CTA */}
                             <Link
-                                href="/product/ultrasonic-physiological-therapy"
+                                href="/product/ultrasound-device-for-home-wireless-warming-physiological-therapy"
                                 className="group inline-flex items-center justify-center w-full sm:w-auto px-10 py-5 bg-deep-teal rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 shadow-[0_0_40px_rgba(23,187,176,0.3)] hover:shadow-[0_0_60px_rgba(23,187,176,0.5)]"
                             >
                                 <span className="relative z-10 font-sans font-medium text-lg text-white flex items-center gap-3">
