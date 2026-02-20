@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { ArrowRight, Star, ShieldCheck } from "lucide-react";
+import Link from "next/link";
 
 export function FinalCTA() {
     return (
@@ -30,8 +31,8 @@ export function FinalCTA() {
                     </div>
 
                     {/* Main CTA */}
-                    <button
-                        onClick={() => window.location.href = "/product/ultraease"}
+                    <Link
+                        href="/product/ultraease"
                         className="group relative inline-flex items-center justify-center w-full sm:w-auto px-12 py-6 bg-deep-teal rounded-full overflow-hidden hover:scale-105 transition-transform duration-300"
                     >
                         {/* Button Glow/Hover Effect */}
@@ -42,7 +43,7 @@ export function FinalCTA() {
                             Buy Now
                             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </span>
-                    </button>
+                    </Link>
 
                     {/* Guarantee Callout */}
                     <div className="mt-12 flex items-center justify-center gap-3 text-white/50 font-sans text-sm">
