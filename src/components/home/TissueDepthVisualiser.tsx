@@ -41,69 +41,89 @@ export function TissueDepthVisualiser() {
                 <Container className="grid grid-cols-1 lg:grid-cols-2 gap-12 w-full h-[60vh] lg:h-[80vh]">
 
                     {/* Left: Animation */}
-                    <div className="relative h-full bg-white rounded-3xl border border-black/5 overflow-hidden flex flex-col justify-end p-8 lg:p-12 shadow-sm">
+                    <div className="relative h-full bg-[#FAFAFA] rounded-[2rem] border border-[#17bbb0]/10 overflow-hidden flex flex-col justify-end p-8 lg:p-12 shadow-[0_8px_32px_rgba(23,187,176,0.05)]">
 
-                        {/* Header/Legend */}
-                        <div className="absolute top-6 left-6 lg:top-8 lg:left-8 z-20">
-                            <h4 className="font-heading text-lg lg:text-xl text-deep-charcoal flex items-center gap-2 bg-white/80 backdrop-blur-sm p-2 rounded-xl border border-black/5">
-                                <Thermometer className="text-amber-glow w-5 h-5 lg:w-6 lg:h-6" />
-                                Tissue Depth & Heat Level
-                            </h4>
-                        </div>
-
-                        {/* Footnote */}
-                        <div className="absolute bottom-6 left-6 right-6 z-20 text-center">
-                            <p className="text-[10px] lg:text-xs text-deep-charcoal/60 font-sans tracking-wide bg-white/60 backdrop-blur-md py-2 px-4 rounded-full inline-block border border-black/5 shadow-sm">
-                                <span className="text-amber-glow font-bold mr-1">*</span>
-                                Orange glow indicates deep penetrating warmth while surface skin remains cool.
-                            </p>
+                        {/* Premium Legend Panel (Top Right now to avoid left-side overlaps) */}
+                        <div className="absolute top-6 right-6 lg:top-8 lg:right-8 z-30">
+                            <div className="flex items-center gap-3 bg-white/90 backdrop-blur-xl px-5 py-3 rounded-2xl border border-white/40 shadow-[0_8px_24px_rgba(0,0,0,0.04)] ring-1 ring-[#17bbb0]/10">
+                                <div className="w-8 h-8 rounded-full bg-[#17bbb0]/10 flex items-center justify-center">
+                                    <Thermometer className="text-[#17bbb0] w-4 h-4" />
+                                </div>
+                                <div className="flex flex-col">
+                                    <span className="text-[10px] font-bold tracking-widest uppercase text-deep-charcoal/40">Indicator</span>
+                                    <span className="font-sans text-sm font-semibold text-deep-charcoal">Thermal Depth</span>
+                                </div>
+                            </div>
                         </div>
 
                         {/* Anatomical Diagram Background */}
-                        <div className="absolute inset-0 flex flex-col justify-between py-12 px-8 z-0 opacity-40">
-                            <div className="border-b border-deep-charcoal border-dashed w-full relative">
-                                <span className="absolute -top-6 right-0 text-xs font-sans text-deep-charcoal font-medium uppercase tracking-widest hidden sm:block">Epidermis</span>
+                        <div className="absolute inset-0 flex flex-col justify-between py-16 px-6 lg:px-12 z-0 opacity-40">
+                            <div className="border-b border-deep-charcoal/20 border-dashed w-full relative">
+                                <span className="absolute -top-5 left-0 text-[10px] font-sans text-deep-charcoal font-bold uppercase tracking-[0.2em] hidden sm:block">Epidermis</span>
                             </div>
-                            <div className="border-b border-deep-charcoal border-dashed w-full relative">
-                                <span className="absolute -top-6 right-0 text-xs font-sans text-deep-charcoal font-medium uppercase tracking-widest hidden sm:block">Dermis</span>
+                            <div className="border-b border-deep-charcoal/20 border-dashed w-full relative">
+                                <span className="absolute -top-5 left-0 text-[10px] font-sans text-deep-charcoal font-bold uppercase tracking-[0.2em] hidden sm:block">Dermis</span>
                             </div>
-                            <div className="border-b border-deep-charcoal border-dashed w-full relative">
-                                <span className="absolute -top-6 right-0 text-xs font-sans text-deep-charcoal font-medium uppercase tracking-widest hidden sm:block">Subcutaneous Fat</span>
+                            <div className="border-b border-deep-charcoal/20 border-dashed w-full relative">
+                                <span className="absolute -top-5 left-0 text-[10px] font-sans text-deep-charcoal font-bold uppercase tracking-[0.2em] hidden sm:block">Subcutaneous Fat</span>
                             </div>
-                            <div className="border-b border-deep-charcoal border-dashed w-full relative">
-                                <span className="absolute -top-6 right-0 text-xs font-sans text-deep-charcoal font-medium uppercase tracking-widest hidden sm:block">Fascia</span>
+                            <div className="border-b border-deep-charcoal/20 border-dashed w-full relative">
+                                <span className="absolute -top-5 left-0 text-[10px] font-sans text-deep-charcoal font-bold uppercase tracking-[0.2em] hidden sm:block">Fascia</span>
                             </div>
-                            <div className="border-b border-deep-charcoal border-dashed w-full border-b-[3px]">
-                                <span className="absolute -top-6 right-0 text-xs font-sans text-deep-charcoal font-medium uppercase tracking-widest hidden sm:block">Deep Muscle</span>
+                            <div className="border-b border-[#17bbb0]/30 border-solid w-full border-b-[2px] relative">
+                                <span className="absolute -top-5 left-0 text-[10px] font-sans text-[#17bbb0] font-bold uppercase tracking-[0.2em] hidden sm:block">Deep Muscle</span>
                             </div>
                         </div>
 
-                        {/* Animated Signal (Target: Mid Teal Arcs) */}
+                        {/* Animated Signal (Target: #17bbb0 Glowing Arcs) */}
                         <motion.div
-                            className="absolute left-[20%] sm:left-1/2 sm:-translate-x-1/2 top-0 flex flex-col items-center z-10"
+                            className="absolute left-1/2 -translate-x-1/2 top-0 flex flex-col items-center z-10"
                             style={{
                                 height: signalDepth,
                                 opacity: signalOpacity
                             }}
                         >
-                            <div className="w-12 sm:w-16 h-full border-x-2 border-mid-teal/40 rounded-b-full bg-gradient-to-b from-mid-teal/10 to-mid-teal/40" />
+                            {/* Device Head */}
+                            <div className="w-20 lg:w-24 h-12 bg-white border-b border-x border-[#17bbb0]/20 rounded-b-full shadow-[0_12px_24px_rgba(23,187,176,0.1)] absolute top-0 -translate-y-px z-20 flex justify-center items-end pb-2">
+                                <div className="w-8 h-1 rounded-full bg-[#17bbb0]/40" />
+                            </div>
 
+                            {/* Beam */}
+                            <div className="w-12 lg:w-16 h-full border-x border-[#17bbb0]/20 bg-gradient-to-b from-[#17bbb0]/5 to-[#17bbb0]/20 relative mt-12 overflow-hidden">
+                                {/* Animated scanning lines inside beam */}
+                                <motion.div
+                                    className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAiLz4KPHBhdGggZD0iTTAgNEw0IDBaIiBzdHJva2U9IiMxN2JiYjAiIHN0cm9rZS1vcGFjaXR5PSIwLjIiIHN0cm9rZS13aWR0aD0iMSIvPgo8L3N2Zz4=')] opacity-50"
+                                    animate={{ backgroundPositionY: ["0px", "100px"] }}
+                                    transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
+                                />
+                            </div>
+
+                            {/* Soundwave Arcs */}
                             <motion.div
-                                animate={{ y: [0, 10, 0], opacity: [0.5, 1, 0.5] }}
-                                transition={{ repeat: Infinity, duration: 1 }}
-                                className="w-20 sm:w-24 h-6 border-b-4 border-mid-teal rounded-[100%] absolute bottom-0 shadow-[0_4px_12px_rgba(74,124,142,0.5)]"
-                            />
+                                animate={{ y: [0, 8, 0], opacity: [0.6, 1, 0.6], scale: [0.95, 1.05, 0.95] }}
+                                transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+                                className="w-24 lg:w-32 h-8 border-b-[3px] border-[#17bbb0] rounded-[100%] absolute bottom-0 shadow-[0_8px_24px_rgba(23,187,176,0.8)]"
+                            >
+                                <div className="absolute -inset-4 border-b-2 border-[#17bbb0]/40 rounded-[100%] top-2" />
+                            </motion.div>
                         </motion.div>
 
-                        {/* Deep Warmth (Amber Glow at bottom) */}
+                        {/* Deep Warmth (Amber Glow mapping to deep muscle) */}
                         <motion.div
-                            className="absolute bottom-12 left-[20%] sm:left-1/2 sm:-translate-x-1/2 w-32 sm:w-48 h-24 bg-amber-glow/60 blur-[40px] rounded-[100%] z-0"
+                            className="absolute bottom-12 left-1/2 -translate-x-1/2 w-48 sm:w-64 h-32 bg-gradient-to-t from-amber-glow/80 to-amber-glow/0 blur-[40px] rounded-full z-0 mix-blend-multiply"
                             style={{
                                 opacity: deepWarmthOpacity,
                                 scale: deepWarmthScale
                             }}
                         />
 
+                        {/* Footnote positioned at bottom left */}
+                        <div className="absolute bottom-6 left-6 right-6 lg:right-auto z-30">
+                            <p className="text-[10px] text-deep-charcoal/60 font-sans tracking-wide bg-white/80 backdrop-blur-md py-2 px-4 rounded-xl inline-block border border-black/5 shadow-sm">
+                                <span className="text-amber-glow font-bold mr-1.5 inline-block animate-pulse">●</span>
+                                Thermal energy deeply penetrates tissue
+                            </p>
+                        </div>
                     </div>
 
                     {/* Right: Scrolling Text */}
