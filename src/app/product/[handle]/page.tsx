@@ -1,15 +1,15 @@
-import { getProducts } from "@/lib/shopify";
+import { getProductByHandle } from "@/lib/shopify";
 import { ProductGallery } from "@/components/product/ProductGallery";
 import { ProductInfo } from "@/components/product/ProductInfo";
 import { Container } from "@/components/ui/Container";
 import { Navbar, Footer } from "@/components/layout";
 import { notFound } from "next/navigation";
 
-export const dynamic = 'force-dynamic';
+// Optional: If we want Next.js to cache this page for 1 hour, we can export revalidate = 3600;
+// export const revalidate = 3600; 
 
 export default async function ProductPage({ params }: { params: { handle: string } }) {
-    const products = await getProducts();
-    const product = products.find(p => p.handle === params.handle);
+    const product = await getProductByHandle(params.handle);
 
     if (!product) {
         notFound();
