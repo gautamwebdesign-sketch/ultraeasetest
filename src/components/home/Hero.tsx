@@ -20,7 +20,7 @@ export function Hero() {
                     transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
                     className="max-w-5xl mx-auto space-y-8"
                 >
-                    <h1 className="font-heading font-semibold text-6xl sm:text-7xl lg:text-8xl xl:text-9xl text-white leading-[0.8] tracking-tight drop-shadow-2xl">
+                    <h1 className="font-heading font-semibold text-6xl sm:text-7xl lg:text-8xl xl:text-9xl text-white leading-[0.7] tracking-tight drop-shadow-2xl">
                         Warmth that begins <br className="hidden sm:block" />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/70">from within.</span>
                     </h1>
