@@ -7,18 +7,18 @@ import { Thermometer } from "lucide-react";
 
 const steps = [
     {
-        title: "Surface Heat Stops Here",
-        desc: "Traditional heating pads and creams only warm the epidermis and dermis. The heat dissipates before it can reach the source of the problem.",
+        title: "Surface Remains Cool",
+        desc: "The surface feels nothing. No heat, no vibration.",
         layerIndex: 0
     },
     {
         title: "The Ultrasound Wave",
-        desc: "Ultraease sends high-frequency sound waves that bypass the surface layers entirely. You feel nothing on the skin, but the energy is traveling deeper.",
+        desc: "The wave moves through tissue, converting as it goes deeper.",
         layerIndex: 1
     },
     {
         title: "Warmth From Within",
-        desc: "When the waves hit the dense tissue of your fascia and deep muscle, the kinetic energy converts into deep, soothing warmth directly where you need it.",
+        desc: "Here the sound wave becomes heat. Right at the source.",
         layerIndex: 2
     }
 ];
@@ -30,12 +30,12 @@ export function TissueDepthVisualiser() {
         offset: ["start start", "end end"]
     });
 
-    // Correct Logic: Starts TOP (Epidermis) -> Travels DOWN to 100% (Deep Muscle)
-    const signalDepth = useTransform(scrollYProgress, [0, 0.4, 0.8], ["10%", "50%", "100%"]);
+    // Beam starts at top (10%) and travels DOWN to 100% (Deep Muscle)
+    const beamHeight = useTransform(scrollYProgress, [0, 0.4, 0.8], ["10%", "50%", "95%"]);
 
-    // Deep warmth is ONLY visible when it reaches the bottom (Deep Muscle)
-    const deepWarmthOpacity = useTransform(scrollYProgress, [0.6, 0.8], [0, 1]);
-    const deepWarmthScale = useTransform(scrollYProgress, [0.6, 0.8, 1], [0.8, 1, 1.1]);
+    // Deep warmth ONLY erupts when it reaches the bottom
+    const deepWarmthOpacity = useTransform(scrollYProgress, [0.65, 0.85], [0, 1]);
+    const deepWarmthScale = useTransform(scrollYProgress, [0.65, 0.85, 1], [0.8, 1, 1.1]);
 
     return (
         <section ref={containerRef} className="relative h-[300vh] bg-warm-ivory">
@@ -49,7 +49,7 @@ export function TissueDepthVisualiser() {
                         <div className="absolute top-6 right-6 lg:top-8 lg:right-8 z-30">
                             <div className="flex items-center gap-3 bg-white/90 backdrop-blur-xl px-5 py-3 rounded-2xl border border-white/40 shadow-[0_8px_24px_rgba(0,0,0,0.04)] ring-1 ring-[#17bbb0]/10">
                                 <div className="w-8 h-8 rounded-full bg-[#17bbb0]/10 flex items-center justify-center">
-                                    <Thermometer className="text-[#17bbb0] w-4 h-4" />
+                                    <div className="w-1.5 h-4 bg-[#17bbb0] rounded-full" />
                                 </div>
                                 <div className="flex flex-col">
                                     <span className="text-[10px] font-bold tracking-widest uppercase text-deep-charcoal/40">Indicator</span>
@@ -77,65 +77,56 @@ export function TissueDepthVisualiser() {
                             </div>
                         </div>
 
-                        {/* Cohesive Thermometer Visual (Travels Downwards) */}
-                        <div className="absolute left-1/2 -translate-x-1/2 top-[12%] bottom-[16%] w-20 z-10 flex flex-col items-center">
+                        {/* Penetration Beam Visual */}
+                        <div className="absolute left-1/2 -translate-x-1/2 top-[8%] bottom-[16%] w-24 z-10 flex flex-col items-center">
 
-                            {/* The Glass Housing */}
+                            {/* Device representation at the top (Skin Contact) */}
+                            <div className="w-20 h-5 bg-white rounded-b-xl border border-[#17bbb0]/20 shadow-[0_4px_12px_rgba(23,187,176,0.1)] z-30 relative overflow-hidden flex items-end justify-center">
+                                <div className="absolute inset-x-0 bottom-0 h-1.5 bg-[#17bbb0]" />
+                            </div>
+
+                            {/* The Penetration Beam Container */}
                             <div className="relative w-full h-full flex flex-col items-center">
-                                {/* Tube Section */}
-                                <div className="w-10 flex-1 bg-white/40 backdrop-blur-md rounded-t-full border-x border-t border-white/60 shadow-[inset_0_2px_12px_rgba(0,0,0,0.05)] p-1.5 z-10 relative overflow-hidden pb-10 flex flex-col justify-start">
-                                    {/* Flowing Medium (Grows Top to Bottom) */}
-                                    <motion.div
-                                        className="w-full bg-gradient-to-b from-[#14a096] to-[#17bbb0] rounded-b-full rounded-t-full relative z-20 origin-top"
-                                        style={{ height: signalDepth }}
-                                    >
-                                        <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-4 h-1.5 bg-white/60 rounded-full shadow-[0_0_8px_rgba(255,255,255,0.8)]" />
-                                        <div className="absolute right-1.5 top-2 bottom-4 w-0.5 bg-white/30 rounded-full blur-[0.5px]" />
-                                    </motion.div>
-
-                                    {/* Ticks */}
-                                    <div className="absolute left-0 top-6 bottom-16 flex flex-col justify-between pointer-events-none z-30">
-                                        {Array.from({ length: 8 }).map((_, i) => (
-                                            <div key={i} className="w-2.5 h-[1.5px] bg-[#17bbb0]/30" />
-                                        ))}
+                                {/* The Wave Beam */}
+                                <motion.div
+                                    className="w-1.5 sm:w-2 bg-gradient-to-b from-[#14a096]/80 via-[#17bbb0] to-amber-glow relative z-20 origin-top rounded-full shadow-[0_0_15px_rgba(23,187,176,0.5)]"
+                                    style={{ height: beamHeight }}
+                                >
+                                    {/* Pulse effect running down the beam */}
+                                    <div className="absolute inset-x-0 top-0 bottom-0 overflow-hidden rounded-full">
+                                        <div className="w-full h-1/4 bg-white/60 blur-[4px] animate-[pulse-down_2s_ease-in-out_infinite]" />
                                     </div>
-                                </div>
 
-                                {/* Bulb Section (Bottom) */}
-                                <div className="w-20 h-20 bg-white/40 backdrop-blur-md rounded-full border border-white/60 shadow-[inset_0_2px_12px_rgba(0,0,0,0.05),_0_8px_32px_rgba(23,187,176,0.15)] -mt-10 z-20 flex items-center justify-center p-2.5 relative">
-                                    <div className="absolute inset-2 bg-white/60 rounded-full flex items-center justify-center overflow-hidden shadow-[inset_-4px_-4px_12px_rgba(0,0,0,0.1),_inset_4px_4px_12px_rgba(255,255,255,0.5)]">
-                                        <div className="absolute top-2 left-3 w-4 h-4 bg-white/60 rounded-full blur-[1px] z-30" />
+                                    {/* Beam Head (Leading Edge) */}
+                                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-white rounded-full shadow-[0_0_12px_rgba(255,255,255,1),_0_0_24px_rgba(23,187,176,0.8)] z-30" />
+                                </motion.div>
 
-                                        {/* Bulb only fills when signal reaches bottom */}
-                                        <motion.div
-                                            className="absolute inset-0 bg-[#17bbb0]"
-                                            style={{ opacity: deepWarmthOpacity }}
-                                        />
-
-                                        {/* Amber Glow inside Bulb (Fires at bottom) */}
-                                        <motion.div
-                                            className="absolute inset-0 bg-amber-glow mix-blend-screen"
-                                            style={{ opacity: deepWarmthOpacity }}
-                                        />
-                                    </div>
-                                </div>
+                                {/* Ambient Beam track (faint path indicating where it can go) */}
+                                <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-[1px] bg-[#17bbb0]/10 border-r border-[#17bbb0]/5 border-dashed z-0" />
                             </div>
                         </div>
 
-                        {/* Ambient Deep Warmth (Background Aura) - Fires at bottom */}
+                        {/* Deep Heat Eruption (Fires only at bottom) */}
                         <motion.div
-                            className="absolute bottom-[10%] left-1/2 -translate-x-1/2 w-48 sm:w-64 h-32 bg-amber-glow/40 blur-[40px] rounded-full z-0 mix-blend-multiply pointer-events-none"
+                            className="absolute bottom-[10%] left-1/2 -translate-x-1/2 w-64 h-32 flex items-center justify-center z-0 pointer-events-none"
                             style={{
                                 opacity: deepWarmthOpacity,
                                 scale: deepWarmthScale
                             }}
-                        />
+                        >
+                            {/* Core Intense Heat */}
+                            <div className="absolute w-24 h-12 bg-amber-glow/60 blur-[20px] rounded-full mix-blend-multiply" />
+                            {/* Outer Radiating Warmth */}
+                            <div className="absolute w-64 h-32 bg-[#17bbb0]/20 blur-[40px] rounded-full mix-blend-multiply" />
+                            {/* Center bright spark */}
+                            <div className="absolute w-8 h-4 bg-white/40 blur-[8px] rounded-full mix-blend-overlay" />
+                        </motion.div>
 
                         {/* Footnote positioned at bottom left */}
                         <div className="absolute bottom-6 left-6 right-6 lg:right-auto z-30">
                             <p className="text-xs sm:text-sm text-deep-charcoal/80 font-sans tracking-wide bg-white/90 backdrop-blur-md py-3 px-5 rounded-xl inline-block border border-black/5 shadow-sm font-medium">
-                                <span className="text-amber-glow font-bold mr-2 inline-block animate-pulse">●</span>
-                                Thermal energy deeply penetrates tissue
+                                <span className="text-[#17bbb0] font-bold mr-2 inline-block animate-pulse">●</span>
+                                Penetrating Deep Tissue Focus
                             </p>
                         </div>
                     </div>
