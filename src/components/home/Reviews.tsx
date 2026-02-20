@@ -101,11 +101,7 @@ export function Reviews() {
                                 exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}
                                 transition={{ duration: 0.4, type: "spring", bounce: 0.1 }}
                                 key={review.name + activeFilter}
-                                className="min-w-[300px] sm:min-w-[350px] lg:min-w-0 snap-center bg-white p-8 rounded-[2rem] shadow-sm border border-black/5 flex flex-col justify-between"
-                                style={{
-                                    // Slight rotation for handwritten note feel, alternating
-                                    rotate: i % 2 === 0 ? -1 : 1
-                                }}
+                                className="min-w-[300px] sm:min-w-[350px] lg:min-w-0 snap-center bg-white p-8 rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.03)] border border-warm-stone/60 flex flex-col justify-between transition-all duration-300 hover:shadow-[0_8px_32px_rgba(0,0,0,0.06)] hover:border-deep-teal/20 group"
                             >
                                 <div>
                                     <div className="flex gap-1 mb-6">
@@ -113,7 +109,7 @@ export function Reviews() {
                                             <Star key={s} size={14} className="fill-amber-glow text-amber-glow" />
                                         ))}
                                     </div>
-                                    <p className="font-heading text-xl lg:text-2xl text-deep-charcoal italic leading-relaxed mb-8">
+                                    <p className="font-heading text-xl lg:text-2xl text-deep-charcoal leading-relaxed mb-8">
                                         "{review.content}"
                                     </p>
                                 </div>

@@ -32,14 +32,14 @@ const steps = [
 
 export function SessionWalkthrough() {
     return (
-        <section className="py-24 lg:py-32 bg-white selection:bg-deep-teal/10">
+        <section className="py-24 lg:py-32 bg-[#F6F4EF] selection:bg-deep-teal/10">
             <Container>
                 <div className="text-center max-w-2xl mx-auto mb-16 lg:mb-24">
                     <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl text-deep-charcoal mb-6">
-                        No guesswork. Just results.
+                        No guesswork. <br className="hidden sm:block" /> Just results.
                     </h2>
                     <p className="font-sans text-xl text-deep-charcoal/70">
-                        Professional-grade technology, simplified for your living room. A standard session takes just 10 minutes.
+                        Professional-grade technology, simplified for your living room. <br className="hidden md:block" /> A standard session takes just 10 minutes.
                     </p>
                 </div>
 
@@ -48,11 +48,11 @@ export function SessionWalkthrough() {
                         <div key={index} className="flex flex-col relative">
                             {/* Connecting Line (Desktop) */}
                             {index < steps.length - 1 && (
-                                <div className="hidden lg:block absolute top-[60px] left-[60%] w-[80%] h-[1px] bg-warm-stone" />
+                                <div className="hidden lg:block absolute top-[48px] left-[60%] w-[80%] h-[1px] bg-warm-stone/80" />
                             )}
 
                             {/* Icon / Animation Box */}
-                            <div className="w-24 h-24 rounded-2xl bg-warm-ivory border border-warm-stone/50 mb-8 flex items-center justify-center relative overflow-hidden shrink-0 z-10">
+                            <div className="w-24 h-24 rounded-2xl bg-white border border-warm-stone/60 shadow-sm mb-8 flex items-center justify-center relative overflow-hidden shrink-0 z-10 transition-transform duration-500 hover:scale-105">
                                 <StepIcon type={step.animContext} />
                             </div>
 
@@ -74,43 +74,45 @@ function StepIcon({ type }: { type: string }) {
             return (
                 <div className="relative w-full h-full flex items-center justify-center">
                     <motion.div
-                        animate={{ y: [-10, 0, 10], scale: [0.8, 1.2, 0.5], opacity: [0, 1, 0] }}
-                        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                        className="w-4 h-4 bg-mid-teal/40 rounded-full blur-[1px]"
+                        animate={{ y: [-15, 0, 10], scaleY: [1, 1.2, 0.8], opacity: [0, 1, 0] }}
+                        transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+                        className="w-5 h-6 bg-mid-teal/60 rounded-b-full rounded-t-[50%] blur-[0.5px]"
                     />
-                    <div className="absolute bottom-6 w-12 h-2 bg-mid-teal/10 rounded-[100%] blur-[2px]" />
+                    <div className="absolute bottom-5 w-14 h-3 bg-mid-teal/20 rounded-[100%] blur-[1px]" />
                 </div>
             );
         case "dial":
             return (
                 <div className="relative w-full h-full flex items-center justify-center">
-                    <div className="w-12 h-12 rounded-full border-2 border-warm-stone flex items-center justify-center">
+                    <div className="w-14 h-14 rounded-full border-2 border-warm-stone/80 bg-warm-ivory flex items-center justify-center shadow-inner">
                         <motion.div
                             animate={{ rotate: [0, 90, 180, 0] }}
                             transition={{ duration: 4, repeat: Infinity, ease: "anticipate" }}
-                            className="w-10 h-10 rounded-full bg-white shadow-sm border border-black/5 relative"
+                            className="w-10 h-10 rounded-full bg-white shadow-md border border-black/5 relative"
                         >
-                            <div className="absolute top-1 left-1/2 -translate-x-1/2 w-1 h-2 bg-mid-teal rounded-full" />
+                            <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-1.5 h-2.5 bg-deep-teal rounded-full" />
                         </motion.div>
                     </div>
                 </div>
             );
         case "circles":
             return (
-                <svg viewBox="0 0 100 100" className="w-12 h-12 text-mid-teal overflow-visible">
-                    <motion.path
-                        d="M 50,20 A 30,30 0 1,1 49.9,20"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="3"
-                        strokeLinecap="round"
-                        strokeDasharray="4 8"
-                        animate={{ rotate: 360 }}
-                        transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                        style={{ transformOrigin: "50px 50px" }}
-                    />
-                    <circle cx="50" cy="20" r="4" fill="currentColor" />
-                </svg>
+                <div className="relative flex items-center justify-center w-full h-full">
+                    <svg viewBox="0 0 100 100" className="w-14 h-14 text-deep-teal overflow-visible">
+                        <motion.path
+                            d="M 50,15 A 35,35 0 1,1 49.9,15"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="4"
+                            strokeLinecap="round"
+                            strokeDasharray="6 10"
+                            animate={{ rotate: 360 }}
+                            transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+                            style={{ transformOrigin: "50px 50px" }}
+                        />
+                        <circle cx="50" cy="15" r="5" fill="currentColor" />
+                    </svg>
+                </div>
             );
         case "warmth":
             return (
