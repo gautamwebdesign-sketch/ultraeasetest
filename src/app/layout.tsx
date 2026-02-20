@@ -1,13 +1,20 @@
 import type { Metadata } from "next";
-import { Inter, Poppins } from "next/font/google";
+import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
-const poppins = Poppins({
-  weight: ["400", "500", "600", "700"],
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  variable: "--font-heading"
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-cormorant",
+  display: "swap",
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-dm-sans",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -21,11 +28,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body className={cn(
-        "min-h-screen font-sans antialiased",
-        inter.variable,
-        poppins.variable
+        "min-h-screen font-sans antialiased bg-warm-ivory text-deep-charcoal selection:bg-mid-teal/20",
+        dmSans.variable,
+        cormorant.variable
       )}>
         {children}
       </body>

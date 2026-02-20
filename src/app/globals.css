@@ -1,71 +1,76 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-heading: "Outfit", sans-serif;
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-cormorant), serif;
 
-  --color-background: #0a0a0a;
-  --color-foreground: #f5f5f7;
-  --color-primary: #3b82f6;
-  --color-primary-hover: #2563eb;
-  --color-secondary: #171717;
-  --color-accent: #8b5cf6;
-  --color-error: #ef4444;
-  --color-success: #22c55e;
-  
-  --radius-lg: 12px;
-  --radius-md: 8px;
-  --radius-sm: 4px;
-  
-  --animate-fade-in: fadeIn 0.5s ease-out;
-  --animate-slide-up: slideUp 0.5s ease-out;
-  
+  --color-deep-teal: #1A4A5A;
+  --color-mid-teal: #4A7C8E;
+  --color-warm-ivory: #FAF8F4;
+  --color-warm-stone: #E8E0D8;
+  --color-amber-glow: #D4956A;
+  --color-deep-charcoal: #1A2B35;
+  --color-medium-grey: #6D7B82;
+
+  --color-primary: var(--color-deep-teal);
+  --color-secondary: var(--color-mid-teal);
+
+  --animate-fade-in: fadeIn 0.8s ease-out forwards;
+  --animate-slide-up: slideUp 0.8s ease-out forwards;
+  --animate-pulse-slow: pulseSlow 4s ease-in-out infinite;
+
   @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
   }
-  
+
   @keyframes slideUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pulseSlow {
+
+    0%,
+    100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.8;
+    }
   }
 }
 
-
-/* Custom Utilities */
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
-  
+
   .glass {
-    @apply bg-white/5 backdrop-blur-lg border border-white/10;
-  }
-  
-  .glass-dark {
-    @apply bg-black/40 backdrop-blur-xl border border-white/5;
+    @apply bg-white/30 backdrop-blur-md border border-white/20;
   }
 
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500;
-  }
-
-  .mask-gradient {
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  .glass-panel {
+    @apply bg-warm-ivory/80 backdrop-blur-xl border border-warm-stone/50 shadow-sm;
   }
 }
 
 :root {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #FAF8F4;
+  --foreground: #1A2B35;
 }
 
 body {
@@ -75,4 +80,3 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
