@@ -35,18 +35,19 @@ export function Hero() {
                     </motion.p>
                 </motion.div>
 
-                {/* Scroll Cue */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 0.8 }}
-                    transition={{ delay: 1.2, duration: 1 }}
-                    className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20"
-                >
-                    <div className="text-white text-[11px] uppercase tracking-[0.2em] font-medium animate-pulse px-4 py-2 rounded-full bg-black/20 backdrop-blur-md border border-white/10">
-                        Discover how it works ↓
-                    </div>
-                </motion.div>
             </Container>
+
+            {/* Scroll Cue */}
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.8 }}
+                transition={{ delay: 1.2, duration: 1 }}
+                className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20"
+            >
+                <div className="text-white text-[11px] uppercase tracking-[0.2em] font-medium animate-pulse px-4 py-2 rounded-full bg-black/20 backdrop-blur-md border border-white/10">
+                    Discover how it works ↓
+                </div>
+            </motion.div>
         </section>
     );
 }
