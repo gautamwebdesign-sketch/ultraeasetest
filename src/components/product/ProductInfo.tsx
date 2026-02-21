@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/Button";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, Shield, Truck } from "lucide-react";
 
-export function ProductInfo({ product }: { product: Product }) {
+export function ProductInfo({ product, storeDomain }: { product: Product, storeDomain?: string }) {
     const [isAdding, setIsAdding] = useState(false);
 
     const price = product.priceRange.minVariantPrice;
@@ -24,7 +24,8 @@ export function ProductInfo({ product }: { product: Product }) {
             if (variantId) {
                 // Extract the raw ID from the gid (e.g. gid://shopify/ProductVariant/42220436324483 -> 42220436324483)
                 const numericId = variantId.split('/').pop();
-                window.location.href = `https://ultra-ease.myshopify.com/cart/${numericId}:1`;
+                const cleanDomain = storeDomain ? storeDomain.replace(/^https?:\/\//, '').replace(/\/$/, '') : 'ultra-ease.myshopify.com';
+                window.location.href = `https://${cleanDomain}/cart/${numericId}:1`;
             } else {
                 setIsAdding(false);
                 alert("Error: No product variant found.");
