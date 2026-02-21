@@ -2,8 +2,7 @@
 "use client";
 
 import { Container } from "@/components/ui/Container";
-import { Button } from "@/components/ui/Button";
-import { Play, Pause, Music, Headphones } from "lucide-react";
+import { Play, Pause, Headphones } from "lucide-react";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
@@ -71,8 +70,8 @@ export function UsageSection() {
                                 <div
                                     key={index}
                                     className={`p-4 rounded-xl flex items-center justify-between transition-colors cursor-pointer ${activeTrack === index
-                                            ? "bg-primary/20 border border-primary/30"
-                                            : "bg-white/5 border border-transparent hover:bg-white/10"
+                                        ? "bg-primary/20 border border-primary/30"
+                                        : "bg-white/5 border border-transparent hover:bg-white/10"
                                         }`}
                                     onClick={() => setActiveTrack(activeTrack === index ? null : index)}
                                 >

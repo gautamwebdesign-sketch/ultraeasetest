@@ -37,7 +37,7 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
                     href={href}
                     className={commonClasses}
                     ref={ref as React.Ref<HTMLAnchorElement>}
-                    {...(props as any)}
+                    {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
                 >
                     {props.children}
                 </Link>

@@ -35,7 +35,7 @@ export function Timeline() {
                         What to Expect
                     </h2>
                     <p className="font-sans text-xl text-deep-charcoal/70">
-                        Healing isn't an instant switch. <br className="hidden sm:block" /> It's a progressive journey of cellular repair and deep tissue relief.
+                        Healing isn&apos;t an instant switch. <br className="hidden sm:block" /> It&apos;s a progressive journey of cellular repair and deep tissue relief.
                     </p>
                 </div>
 

@@ -1,0 +1,60 @@
+
+> triple-whirlpool@0.1.0 lint
+> eslint
+
+
+C:\Users\Gautam\.gemini\antigravity\playground\tachyon-apogee\ultraeasetest\src\components\home\HeroVisual.tsx
+  9:29  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\Gautam\.gemini\antigravity\playground\tachyon-apogee\ultraeasetest\src\components\home\Reviews.tsx
+   96:55  warning  'i' is defined but never used                                    @typescript-eslint/no-unused-vars
+  113:41  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  113:58  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+C:\Users\Gautam\.gemini\antigravity\playground\tachyon-apogee\ultraeasetest\src\components\home\Scene.tsx
+  4:32  warning  'Environment' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Gautam\.gemini\antigravity\playground\tachyon-apogee\ultraeasetest\src\components\home\ScienceAccordion.tsx
+  74:60  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Gautam\.gemini\antigravity\playground\tachyon-apogee\ultraeasetest\src\components\home\StillnessMoment.tsx
+  24:66  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Gautam\.gemini\antigravity\playground\tachyon-apogee\ultraeasetest\src\components\home\TechSpecs.tsx
+  7:7  warning  'specs' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Gautam\.gemini\antigravity\playground\tachyon-apogee\ultraeasetest\src\components\home\Timeline.tsx
+  38:36  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  38:95  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Gautam\.gemini\antigravity\playground\tachyon-apogee\ultraeasetest\src\components\home\TissueDepthVisualiser.tsx
+    6:10  warning  'Thermometer' is defined but never used   @typescript-eslint/no-unused-vars
+  159:66  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  195:66  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\Gautam\.gemini\antigravity\playground\tachyon-apogee\ultraeasetest\src\components\home\UsageSection.tsx
+  5:10  warning  'Button' is defined but never used  @typescript-eslint/no-unused-vars
+  6:23  warning  'Music' is defined but never used   @typescript-eslint/no-unused-vars
+
+C:\Users\Gautam\.gemini\antigravity\playground\tachyon-apogee\ultraeasetest\src\components\product\ProductInfo.tsx
+    7:32  warning  'Zap' is defined but never used                                  @typescript-eslint/no-unused-vars
+  145:25  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Gautam\.gemini\antigravity\playground\tachyon-apogee\ultraeasetest\src\components\product\ProductView.tsx
+  116:29  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Gautam\.gemini\antigravity\playground\tachyon-apogee\ultraeasetest\src\components\ui\Button.tsx
+  40:35  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\Gautam\.gemini\antigravity\playground\tachyon-apogee\ultraeasetest\src\components\ui\Container.tsx
+  4:11  error  An interface declaring no members is equivalent to its supertype  @typescript-eslint/no-empty-object-type
+
+C:\Users\Gautam\.gemini\antigravity\playground\tachyon-apogee\ultraeasetest\src\lib\shopify.ts
+   42:15  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  130:41  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  141:53  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  153:44  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  182:47  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+Γ£û 25 problems (18 errors, 7 warnings)
+

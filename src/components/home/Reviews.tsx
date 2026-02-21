@@ -93,7 +93,7 @@ export function Reviews() {
                 {/* Horizontal Scroll Track on Mobile, Masonry-ish Grid on Desktop */}
                 <div className="flex gap-6 overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-hide lg:grid lg:grid-cols-3 lg:gap-8 lg:overflow-visible lg:pb-0 lg:snap-none">
                     <AnimatePresence mode="popLayout">
-                        {filteredReviews.map((review, i) => (
+                        {filteredReviews.map((review) => (
                             <motion.div
                                 layout
                                 initial={{ opacity: 0, scale: 0.9 }}
@@ -110,7 +110,7 @@ export function Reviews() {
                                         ))}
                                     </div>
                                     <p className="font-heading text-xl lg:text-2xl text-deep-charcoal leading-relaxed mb-8">
-                                        "{review.content}"
+                                        &quot;{review.content}&quot;
                                     </p>
                                 </div>
 

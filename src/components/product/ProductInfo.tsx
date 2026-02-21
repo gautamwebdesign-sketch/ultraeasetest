@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Product } from "@/lib/shopify";
 import { Button } from "@/components/ui/Button";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, Shield, Truck, Zap } from "lucide-react";
+import { Check, Shield, Truck } from "lucide-react";
 
 export function ProductInfo({ product }: { product: Product }) {
     const [isAdding, setIsAdding] = useState(false);
@@ -142,7 +142,7 @@ function ProductSpecsAccordion() {
 
             <details className="group border border-warm-stone/50 rounded-2xl bg-white/50 [&_summary::-webkit-details-marker]:hidden">
                 <summary className="flex items-center justify-between p-6 cursor-pointer font-sans font-medium text-lg text-deep-charcoal select-none">
-                    What's in the Box
+                    What&apos;s in the Box
                     <span className="transition group-open:rotate-180">
                         <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
                     </span>

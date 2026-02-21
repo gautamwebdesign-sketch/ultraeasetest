@@ -3,7 +3,6 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import { Container } from "@/components/ui/Container";
-import { Thermometer } from "lucide-react";
 
 const steps = [
     {
@@ -156,7 +155,7 @@ export function TissueDepthVisualiser() {
     );
 }
 
-function TextStep({ step, index, progress, start, end }: { step: any, index: number, progress: MotionValue<number>, start: number, end: number }) {
+function TextStep({ step, index, progress, start, end }: { step: { title: string, desc: string, layerIndex: number }, index: number, progress: MotionValue<number>, start: number, end: number }) {
     const fadeStart = start;
     const fadeEnd = end;
     const peakStart = start + 0.1;
@@ -192,7 +191,7 @@ function TextStep({ step, index, progress, start, end }: { step: any, index: num
     return (
         <motion.div
             className="absolute top-1/2 -translate-y-1/2 w-full max-w-md bg-white/80 lg:bg-transparent backdrop-blur-md lg:backdrop-blur-none p-6 lg:p-0 rounded-2xl lg:rounded-none lg:shadow-none shadow-sm"
-            style={{ opacity, y, pointerEvents: pointerEvents as any }}
+            style={{ opacity, y, pointerEvents: pointerEvents as unknown as "auto" | "none" }}
         >
             <p className="text-amber-glow font-medium text-sm tracking-widest uppercase mb-4">
                 0{index + 1}

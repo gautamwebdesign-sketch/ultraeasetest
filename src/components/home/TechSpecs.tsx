@@ -4,14 +4,7 @@
 import { Container } from "@/components/ui/Container";
 import { motion } from "framer-motion";
 
-const specs = [
-    { label: "Low Intensity", value: "0.29 W/cm²" },
-    { label: "Medium Intensity", value: "0.44 W/cm²" },
-    { label: "High Intensity", value: "0.53 W/cm²" },
-    { label: "Auto-Timer", value: "10 minutes (Safety Cut-off)" },
-    { label: "Included Audio", value: "4 Relaxation Techniques" },
-    { label: "Origin", value: "German Engineering & Quality" },
-];
+
 
 export function TechSpecs() {
     return (

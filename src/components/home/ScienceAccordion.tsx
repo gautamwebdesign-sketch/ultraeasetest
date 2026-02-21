@@ -71,7 +71,7 @@ export function ScienceAccordion() {
                         The Science, Unpacked.
                     </h2>
                     <p className="font-sans text-xl text-deep-charcoal/70">
-                        Ask any question. Go as deep as you'd like.
+                        Ask any question. Go as deep as you&apos;d like.
                     </p>
                 </div>
 
