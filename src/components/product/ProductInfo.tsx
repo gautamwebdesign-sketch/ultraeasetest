@@ -110,7 +110,7 @@ export function ProductInfo({ product, storeDomain }: { product: Product, storeD
             </div>
 
             {/* Description HTML from Shopify */}
-            <div className="prose prose-teal max-w-none pt-4">
+            <div className="prose prose-teal max-w-none pt-8 border-t border-warm-stone/50 mt-8 prose-headings:font-heading prose-headings:text-deep-charcoal prose-headings:font-medium prose-p:text-deep-charcoal/80 prose-p:leading-relaxed prose-a:text-deep-teal prose-a:font-medium hover:prose-a:text-mid-teal prose-strong:text-deep-charcoal prose-strong:font-semibold prose-ul:list-disc prose-ul:pl-5 prose-li:text-deep-charcoal/80 prose-li:marker:text-deep-teal/50">
                 {/* Basic sanitize or trust Shopify HTML */}
                 <div dangerouslySetInnerHTML={{ __html: product.descriptionHtml }} />
             </div>
