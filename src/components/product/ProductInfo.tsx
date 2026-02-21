@@ -20,11 +20,16 @@ export function ProductInfo({ product }: { product: Product }) {
         // Integrate with Shopify cart API here later if needed
         // For now, redirect to the direct checkout link or simulate
         setTimeout(() => {
-            setIsAdding(false);
-            // Redirect logic would go here
-            // window.location.href = `/cart/${product.variants.nodes[0].id}:1`;
-            alert("This connects to the Shopify Cart API. (To be implemented fully based on desired cart flow: modal, slide-over, or redirect).");
-        }, 800);
+            const variantId = product.variants.nodes[0]?.id;
+            if (variantId) {
+                // Extract the raw ID from the gid (e.g. gid://shopify/ProductVariant/42220436324483 -> 42220436324483)
+                const numericId = variantId.split('/').pop();
+                window.location.href = `https://ultra-ease.myshopify.com/cart/${numericId}:1`;
+            } else {
+                setIsAdding(false);
+                alert("Error: No product variant found.");
+            }
+        }, 300);
     };
 
     return (

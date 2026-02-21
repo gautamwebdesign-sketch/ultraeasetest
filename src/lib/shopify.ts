@@ -35,7 +35,7 @@ export interface Product {
 export async function shopifyFetch<T>({
   query,
   variables = {},
-  cache = 'force-cache',
+  cache = 'no-store',
   tags = [],
 }: {
   query: string;
