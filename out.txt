@@ -1,0 +1,4 @@
+Domain: ultra-ease.myshopify.com
+Token length: 32
+Response Status: 200
+Handles: [ 'ultrasound-device-for-home-wireless-warming-physiological-therapy' ]
