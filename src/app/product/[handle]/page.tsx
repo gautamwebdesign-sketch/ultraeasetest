@@ -8,8 +8,9 @@ import { notFound } from "next/navigation";
 // Optional: If we want Next.js to cache this page for 1 hour, we can export revalidate = 3600;
 // export const revalidate = 3600; 
 
-export default async function ProductPage({ params }: { params: { handle: string } }) {
-    const product = await getProductByHandle(params.handle);
+export default async function ProductPage({ params }: { params: Promise<{ handle: string }> }) {
+    const { handle } = await params;
+    const product = await getProductByHandle(handle);
 
     if (!product) {
         notFound();
