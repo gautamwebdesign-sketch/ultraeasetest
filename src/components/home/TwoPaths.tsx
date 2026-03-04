@@ -24,7 +24,7 @@ export function TwoPaths() {
             title: "Pain & Recovery",
             subtitle: "For the body",
             bgClass: "bg-[#E6EBEF]",
-            image: "/ai%20generated%20product%20images/medium_intensity_lifestyle_1771659005548.png",
+            image: "/AI generated product images/medium_intensity_lifestyle_1771659005548.png",
             bullets: [
                 { text: "Relieve deep muscle tension", icon: Activity },
                 { text: "Soothe chronic joint pain", icon: Zap },
@@ -35,7 +35,7 @@ export function TwoPaths() {
             title: "Skin & Beauty",
             subtitle: "For the face",
             bgClass: "bg-warm-stone/50",
-            image: "/ai%20generated%20product%20images/beauty_lifestyle_hero_1771658941728.png",
+            image: "/AI generated product images/beauty_lifestyle_hero_1771658941728.png",
             bullets: [
                 { text: "Stimulate natural collagen", icon: Sparkles },
                 { text: "Drive serums deeper into the dermis", icon: Droplets },
