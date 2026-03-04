@@ -70,7 +70,7 @@ export function FinalCTA() {
                         {/* Gradient overlay — fades left edge into content panel */}
                         <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-deep-charcoal via-deep-charcoal/20 to-transparent z-10 pointer-events-none" />
                         <Image
-                            src="/ai%20generated%20product%20images/hero_product_device_1771658893867.png"
+                            src="/AI generated product images/hero_product_device_1771658893867.png"
                             alt="Ultraease Ultrasound Device"
                             fill
                             className="object-cover object-center mix-blend-normal opacity-100"
