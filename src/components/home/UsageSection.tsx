@@ -28,8 +28,8 @@ export function UsageSection() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
                         >
-                            <h2 className="text-3xl font-bold font-heading mb-4 text-white">How to Use <span className="text-gradient">Ultraease</span></h2>
-                            <p className="text-white/60 mb-8 max-w-md">
+                            <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl text-warm-ivory leading-[1.1] mb-6">How to Use <span className="text-gradient">Ultraease</span></h2>
+                            <p className="font-sans text-lg lg:text-xl text-warm-ivory/60 mb-8 max-w-md leading-relaxed">
                                 Follow our step-by-step guide to get the most out of your therapy sessions. Simple, safe, and effective.
                             </p>
                         </motion.div>
@@ -43,8 +43,8 @@ export function UsageSection() {
                         >
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                             <div className="absolute bottom-6 left-6 right-6">
-                                <p className="text-sm font-medium text-white/80 uppercase tracking-wider mb-1">Video Guide</p>
-                                <h3 className="text-xl font-bold text-white">Quick Start Tutorial</h3>
+                                <p className="font-sans text-xs font-semibold tracking-[0.2em] uppercase text-warm-ivory/80 mb-1">Video Guide</p>
+                                <h3 className="font-heading text-2xl lg:text-3xl text-warm-ivory">Quick Start Tutorial</h3>
                             </div>
 
                             <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all z-10">
@@ -60,8 +60,8 @@ export function UsageSection() {
                                 <Headphones size={24} />
                             </div>
                             <div>
-                                <h3 className="text-xl font-bold text-white">Audio Therapy</h3>
-                                <p className="text-sm text-white/50">Guided relaxation included with your device</p>
+                                <h3 className="font-heading text-2xl lg:text-3xl text-warm-ivory">Audio Therapy</h3>
+                                <p className="font-sans text-sm text-warm-ivory/50">Guided relaxation included with your device</p>
                             </div>
                         </div>
 
@@ -81,10 +81,10 @@ export function UsageSection() {
                                             {activeTrack === index ? <Pause size={14} /> : <Play size={14} className="ml-0.5" />}
                                         </div>
                                         <div>
-                                            <p className={`font-medium ${activeTrack === index ? "text-white" : "text-white/80"}`}>
+                                            <p className={`font-sans font-medium ${activeTrack === index ? "text-warm-ivory" : "text-warm-ivory/80"}`}>
                                                 {track.title}
                                             </p>
-                                            <p className="text-xs text-white/40">{track.duration}</p>
+                                            <p className="font-sans text-xs text-warm-ivory/40">{track.duration}</p>
                                         </div>
                                     </div>
                                     {activeTrack === index && (
@@ -99,7 +99,7 @@ export function UsageSection() {
                         </div>
 
                         <div className="mt-8 pt-6 border-t border-white/10">
-                            <p className="text-sm text-white/40 text-center">
+                            <p className="font-sans text-sm text-warm-ivory/40 text-center">
                                 Purchase Ultraease to unlock full access to all relaxation technique sessions.
                             </p>
                         </div>

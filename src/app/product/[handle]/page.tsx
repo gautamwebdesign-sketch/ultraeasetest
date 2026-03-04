@@ -24,18 +24,14 @@ export default async function ProductPage({ params }: { params: Promise<{ handle
 
             <section className="pt-32 pb-24 lg:pt-40 lg:pb-32">
                 <Container>
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
-                        {/* Left: Sticky Image Gallery */}
-                        <div className="relative">
-                            <div className="lg:sticky lg:top-32">
-                                <ProductGallery media={product.media} />
-                            </div>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+                        {/* Left: Sticky Image Gallery — items-start prevents parent stretching when right col expands */}
+                        <div className="lg:sticky lg:top-32">
+                            <ProductGallery media={product.media} />
                         </div>
 
                         {/* Right: Product Info */}
-                        <div className="flex flex-col">
-                            <ProductInfo product={product} storeDomain={storeDomain} />
-                        </div>
+                        <ProductInfo product={product} storeDomain={storeDomain} />
                     </div>
                 </Container>
             </section>

@@ -34,10 +34,10 @@ export function Features() {
             <div className="absolute inset-0 bg-grid-white/[0.02]" />
             <Container>
                 <div className="text-center max-w-2xl mx-auto mb-16">
-                    <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl font-heading">
+                    <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl text-warm-ivory leading-[1.1] mb-6">
                         Advanced Technology for <span className="text-gradient">Home Care</span>
                     </h2>
-                    <p className="mt-4 text-lg text-white/60">
+                    <p className="font-sans mt-4 text-lg lg:text-xl text-warm-ivory/70 leading-relaxed">
                         Professional-grade ultrasound technology adapted for safe and effective home use.
                     </p>
                 </div>
@@ -57,8 +57,8 @@ export function Features() {
                                 <div className="inline-flex p-3 rounded-lg bg-primary/20 text-primary mb-5 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300">
                                     <feature.icon className="h-6 w-6" />
                                 </div>
-                                <h3 className="text-lg font-bold font-heading text-white mb-3 group-hover:text-primary-foreground transition-colors">{feature.name}</h3>
-                                <p className="text-sm text-white/60 leading-relaxed text-balance group-hover:text-white transition-colors">
+                                <h3 className="font-heading text-lg text-warm-ivory mb-3 group-hover:text-primary-foreground transition-colors">{feature.name}</h3>
+                                <p className="font-sans text-sm text-white/60 leading-relaxed text-balance group-hover:text-white transition-colors">
                                     {feature.description}
                                 </p>
                             </div>

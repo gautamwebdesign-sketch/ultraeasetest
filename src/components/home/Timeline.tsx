@@ -28,14 +28,14 @@ const milestones = [
 
 export function Timeline() {
     return (
-        <section className="py-24 lg:py-32 bg-warm-stone/20">
+        <section className="py-24 lg:py-32 bg-white">
             <Container>
                 <div className="text-center max-w-3xl mx-auto mb-20 lg:mb-32">
-                    <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl text-deep-charcoal mb-6">
-                        What to Expect
+                    <h2 className="font-heading italic text-4xl sm:text-5xl lg:text-6xl text-deep-charcoal leading-[1.1] mb-6">
+                        How it feels, day by day.
                     </h2>
-                    <p className="font-sans text-xl text-deep-charcoal/70">
-                        Healing isn&apos;t an instant switch. <br className="hidden sm:block" /> It&apos;s a progressive journey of cellular repair and deep tissue relief.
+                    <p className="font-sans text-lg lg:text-xl text-deep-charcoal/70 leading-relaxed">
+                        Relief builds quietly. <br className="hidden sm:block" /> Here&apos;s what people notice as the sessions add up.
                     </p>
                 </div>
 
@@ -59,9 +59,9 @@ export function Timeline() {
                                 </div>
 
                                 <div className="pt-2 md:pt-0">
-                                    <p className="text-amber-glow font-medium text-sm tracking-widest uppercase mb-3 transition-colors duration-300 group-hover:text-deep-teal">{m.time}</p>
-                                    <h3 className="font-heading text-2xl text-deep-charcoal mb-4 pr-4">{m.title}</h3>
-                                    <p className="font-sans text-deep-charcoal/70 leading-relaxed pr-4">{m.desc}</p>
+                                    <p className="font-sans text-xs font-semibold tracking-[0.2em] uppercase text-amber-glow mb-3 transition-colors duration-300 group-hover:text-deep-teal">{m.time}</p>
+                                    <h3 className="font-heading text-2xl lg:text-3xl text-deep-charcoal mb-4 pr-4">{m.title}</h3>
+                                    <p className="font-sans text-base text-deep-charcoal/70 leading-relaxed pr-4">{m.desc}</p>
                                 </div>
                             </motion.div>
                         ))}

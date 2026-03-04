@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultraease — Button Design Options</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --deep-teal: #1A4A5A;
+            --mid-teal: #17bbb0;
+            --amber-glow: #D4956A;
+            --warm-stone: #E8E0D8;
+            --warm-ivory: #FAF8F4;
+            --deep-charcoal: #1A2B35;
+            --expo: cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background: var(--warm-ivory);
+            font-family: 'DM Sans', sans-serif;
+            color: var(--deep-charcoal);
+            padding: 80px 60px;
+        }
+
+        .page-header {
+            margin-bottom: 80px;
+        }
+        .page-header h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 48px;
+            font-weight: 400;
+            color: var(--deep-charcoal);
+            margin-bottom: 12px;
+            line-height: 1.1;
+        }
+        .page-header p {
+            font-size: 14px;
+            color: var(--deep-charcoal);
+            opacity: 0.5;
+            letter-spacing: 0.01em;
+        }
+
+        .options-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .option {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 60px;
+            align-items: center;
+            padding: 60px 0;
+            border-bottom: 1px solid rgba(26, 43, 53, 0.07);
+        }
+        .option:last-child { border-bottom: none; }
+
+        .option-meta { }
+        .option-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 72px;
+            font-weight: 400;
+            color: var(--deep-charcoal);
+            opacity: 0.08;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .option-name {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--mid-teal);
+            margin-bottom: 6px;
+        }
+        .option-desc {
+            font-size: 13px;
+            line-height: 1.6;
+            color: var(--deep-charcoal);
+            opacity: 0.5;
+        }
+
+        .option-preview {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .preview-row {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+        .preview-label {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--deep-charcoal);
+            opacity: 0.3;
+            width: 70px;
+            flex-shrink: 0;
+        }
+        .dark-row {
+            background: var(--deep-charcoal);
+            padding: 28px 28px;
+            border-radius: 12px;
+        }
+        .dark-row .preview-label { color: white; opacity: 0.25; }
+
+
+        /* =============================================
+           OPTION A — WAVE
+           Ultrasound ripple from center on hover.
+           Calm pill, deep-charcoal core.
+        ============================================= */
+
+        .btn-wave-primary {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 36px;
+            background: var(--deep-charcoal);
+            color: var(--warm-ivory);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            border: none;
+            border-radius: 100px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: transform 0.4s var(--expo), box-shadow 0.4s var(--expo);
+        }
+        .btn-wave-primary::before {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 0; height: 0;
+            background: radial-gradient(circle, rgba(23, 187, 176, 0.35) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.7s var(--expo), height 0.7s var(--expo), opacity 0.5s ease;
+            opacity: 0;
+        }
+        .btn-wave-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(26, 43, 53, 0.22);
+        }
+        .btn-wave-primary:hover::before {
+            width: 280px; height: 280px;
+            opacity: 1;
+        }
+        .btn-wave-primary .arrow {
+            transition: transform 0.4s var(--expo);
+            opacity: 0.6;
+        }
+        .btn-wave-primary:hover .arrow {
+            transform: translateX(3px);
+            opacity: 1;
+        }
+
+        .btn-wave-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            background: transparent;
+            color: var(--deep-charcoal);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            border: 1.5px solid rgba(26, 43, 53, 0.2);
+            border-radius: 100px;
+            cursor: pointer;
+            transition: all 0.35s var(--expo);
+        }
+        .btn-wave-secondary:hover {
+            border-color: var(--deep-charcoal);
+            background: var(--deep-charcoal);
+            color: var(--warm-ivory);
+        }
+
+
+        /* =============================================
+           OPTION B — THERMAL
+           Amber warmth blooms from center on hover.
+           References the "warmth from within" product concept.
+        ============================================= */
+
+        .btn-thermal-primary {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 36px;
+            background: var(--deep-teal);
+            color: white;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            border: none;
+            border-radius: 100px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: transform 0.4s var(--expo), box-shadow 0.4s var(--expo);
+            box-shadow: 0 4px 20px rgba(23, 187, 176, 0.18);
+        }
+        .btn-thermal-primary::after {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 0; height: 0;
+            background: radial-gradient(circle, rgba(212, 149, 106, 0.55) 0%, rgba(212, 149, 106, 0.0) 65%);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.8s var(--expo), height 0.8s var(--expo);
+        }
+        .btn-thermal-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(23, 187, 176, 0.3), 0 0 0 4px rgba(23, 187, 176, 0.08);
+        }
+        .btn-thermal-primary:hover::after {
+            width: 300px; height: 300px;
+        }
+        .btn-thermal-primary span { position: relative; z-index: 1; }
+        .btn-thermal-primary .arrow {
+            position: relative; z-index: 1;
+            transition: transform 0.4s var(--expo);
+        }
+        .btn-thermal-primary:hover .arrow { transform: translateX(3px); }
+
+        .btn-thermal-secondary {
+            display: inline-flex;
+            align-items: center;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--deep-teal);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px 0;
+            position: relative;
+            letter-spacing: 0.04em;
+            gap: 8px;
+            transition: gap 0.35s var(--expo), color 0.3s;
+        }
+        .btn-thermal-secondary::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            height: 1px; width: 0;
+            background: var(--amber-glow);
+            transition: width 0.45s var(--expo);
+        }
+        .btn-thermal-secondary:hover { gap: 14px; color: var(--deep-charcoal); }
+        .btn-thermal-secondary:hover::after { width: 100%; }
+        .btn-thermal-secondary .t-arrow { opacity: 0.5; transition: opacity 0.3s; }
+        .btn-thermal-secondary:hover .t-arrow { opacity: 1; }
+
+
+        /* =============================================
+           OPTION C — EDITORIAL
+           Cormorant Garamond italic primary.
+           A completely unexpected, luxury-editorial choice.
+           For brands that trust their aesthetic over convention.
+        ============================================= */
+
+        .btn-editorial-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 38px;
+            background: var(--warm-ivory);
+            color: var(--deep-charcoal);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 19px;
+            font-weight: 500;
+            font-style: italic;
+            border: 1px solid rgba(26, 43, 53, 0.18);
+            border-radius: 0;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: color 0.4s ease;
+            letter-spacing: 0.01em;
+        }
+        .btn-editorial-primary::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--deep-charcoal);
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: transform 0.5s var(--expo);
+        }
+        .btn-editorial-primary:hover { color: var(--warm-ivory); }
+        .btn-editorial-primary:hover::before { transform: scaleY(1); }
+        .btn-editorial-primary span, .btn-editorial-primary svg { position: relative; z-index: 1; }
+
+        .btn-editorial-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--deep-charcoal);
+            background: none; border: none;
+            cursor: pointer;
+            padding: 8px 0;
+            position: relative;
+            transition: color 0.3s;
+        }
+        .btn-editorial-secondary::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            height: 1px; width: 100%;
+            background: var(--warm-stone);
+            transition: background 0.4s ease;
+        }
+        .btn-editorial-secondary:hover { color: var(--deep-teal); }
+        .btn-editorial-secondary:hover::after { background: var(--deep-teal); }
+
+
+        /* =============================================
+           OPTION D — PRECISE
+           Surgical precision. No border-radius.
+           A thin amber accent line that draws in.
+           Maximum trust, minimum decoration.
+        ============================================= */
+
+        .btn-precise-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            padding: 15px 36px;
+            background: var(--deep-charcoal);
+            color: var(--warm-ivory);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            position: relative;
+            transition: background 0.35s ease, transform 0.35s var(--expo);
+            overflow: hidden;
+        }
+        .btn-precise-primary::after {
+            content: '';
+            position: absolute;
+            left: 0; bottom: 0;
+            width: 0; height: 2px;
+            background: var(--amber-glow);
+            transition: width 0.5s var(--expo);
+        }
+        .btn-precise-primary:hover {
+            background: var(--deep-teal);
+            transform: translateY(-1px);
+        }
+        .btn-precise-primary:hover::after { width: 100%; }
+        .btn-precise-primary .p-arrow {
+            width: 14px; height: 14px;
+            opacity: 0.5;
+            transition: transform 0.35s var(--expo), opacity 0.3s;
+        }
+        .btn-precise-primary:hover .p-arrow { transform: translateX(4px); opacity: 1; }
+
+        .btn-precise-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            background: transparent;
+            color: var(--deep-charcoal);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            border: 1.5px solid rgba(26, 43, 53, 0.25);
+            border-radius: 3px;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.35s var(--expo);
+            overflow: hidden;
+        }
+        .btn-precise-secondary::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--warm-stone);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s var(--expo);
+            z-index: 0;
+        }
+        .btn-precise-secondary span { position: relative; z-index: 1; }
+        .btn-precise-secondary:hover { border-color: var(--warm-stone); }
+        .btn-precise-secondary:hover::before { transform: scaleX(1); }
+
+
+        /* =============================================
+           OPTION E — CAPSULE
+           The definitive premium pill.
+           Teal base, outer glow blooms on hover.
+           Works perfectly on both light and dark backgrounds.
+        ============================================= */
+
+        .btn-capsule-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 42px;
+            background: linear-gradient(135deg, #17bbb0 0%, #1a9e94 100%);
+            color: white;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            border: none;
+            border-radius: 100px;
+            cursor: pointer;
+            position: relative;
+            transition: transform 0.4s var(--expo), box-shadow 0.4s var(--expo);
+            box-shadow: 0 4px 24px rgba(23, 187, 176, 0.25);
+        }
+        .btn-capsule-primary:hover {
+            transform: translateY(-3px) scale(1.015);
+            box-shadow:
+                0 8px 32px rgba(23, 187, 176, 0.35),
+                0 0 0 6px rgba(23, 187, 176, 0.1);
+        }
+        .btn-capsule-primary .c-arrow {
+            transition: transform 0.4s var(--expo);
+        }
+        .btn-capsule-primary:hover .c-arrow { transform: translateX(3px); }
+
+        .btn-capsule-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 38px;
+            background: transparent;
+            color: var(--deep-teal);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            border: 1.5px solid rgba(26, 74, 90, 0.35);
+            border-radius: 100px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: color 0.35s ease, border-color 0.35s ease;
+        }
+        .btn-capsule-secondary::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--deep-teal);
+            border-radius: 100px;
+            transform: scale(0);
+            transition: transform 0.45s var(--expo);
+        }
+        .btn-capsule-secondary span { position: relative; z-index: 1; }
+        .btn-capsule-secondary:hover { color: white; border-color: var(--deep-teal); }
+        .btn-capsule-secondary:hover::before { transform: scale(1.05); }
+
+
+        /* Dark context previews */
+        .dark-preview-row {
+            display: flex; align-items: center; gap: 24px;
+        }
+        .dark-tile {
+            background: var(--deep-charcoal);
+            border-radius: 12px;
+            padding: 28px 36px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        /* Dark variants of each */
+        .btn-wave-dark {
+            padding: 14px 34px;
+            background: rgba(255,255,255,0.07);
+            color: rgba(255,255,255,0.9);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 100px;
+            cursor: pointer;
+            transition: all 0.35s var(--expo);
+            backdrop-filter: blur(10px);
+        }
+        .btn-wave-dark:hover {
+            background: rgba(255,255,255,0.14);
+            border-color: rgba(255,255,255,0.3);
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="page-header">
+    <h1>Button Design<br><em style="font-style:italic; opacity:0.5;">Five Options</em></h1>
+    <p>Hover each button to see the interaction. Primary + secondary + dark context shown for each option.</p>
+</div>
+
+<div class="options-grid">
+
+    <!-- OPTION A -->
+    <div class="option">
+        <div class="option-meta">
+            <div class="option-number">A</div>
+            <div class="option-name">Wave</div>
+            <div class="option-desc">Ultrasound ripple blooms from the center. Dark charcoal foundation. Calm, confident, premium.</div>
+        </div>
+        <div class="option-preview">
+            <div class="preview-row">
+                <span class="preview-label">Primary</span>
+                <button class="btn-wave-primary">
+                    <span>Buy Now</span>
+                    <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+                <button class="btn-wave-primary" style="padding: 12px 28px; font-size: 12px;">Explore Device</button>
+            </div>
+            <div class="preview-row">
+                <span class="preview-label">Secondary</span>
+                <button class="btn-wave-secondary">Learn More</button>
+                <button class="btn-wave-secondary">View Science</button>
+            </div>
+            <div class="preview-row">
+                <span class="preview-label" style="color:white; opacity:0.25;">On Dark</span>
+                <div class="dark-tile">
+                    <button class="btn-wave-primary" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15);">Buy Now</button>
+                    <button class="btn-wave-dark">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- OPTION B -->
+    <div class="option">
+        <div class="option-meta">
+            <div class="option-number">B</div>
+            <div class="option-name">Thermal</div>
+            <div class="option-desc">Amber warmth radiates from within on hover. Mirrors the product's core mechanism — heat generated at depth.</div>
+        </div>
+        <div class="option-preview">
+            <div class="preview-row">
+                <span class="preview-label">Primary</span>
+                <button class="btn-thermal-primary">
+                    <span>Buy Now</span>
+                    <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+                <button class="btn-thermal-primary" style="padding: 12px 28px; font-size: 12px;">Explore Device</button>
+            </div>
+            <div class="preview-row">
+                <span class="preview-label">Secondary</span>
+                <button class="btn-thermal-secondary">
+                    Learn More
+                    <svg class="t-arrow" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+                <button class="btn-thermal-secondary" style="margin-left:16px;">View the Science</button>
+            </div>
+            <div class="preview-row">
+                <span class="preview-label">On Dark</span>
+                <div class="dark-tile">
+                    <button class="btn-thermal-primary">Buy Now</button>
+                    <button class="btn-thermal-secondary" style="color: rgba(250,248,244,0.7);">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- OPTION C -->
+    <div class="option">
+        <div class="option-meta">
+            <div class="option-number">C</div>
+            <div class="option-name">Editorial</div>
+            <div class="option-desc">Cormorant Garamond italic. Distinctly premium and unexpected. The fill animation on hover feels like the brand printing itself. Strong brand POV.</div>
+        </div>
+        <div class="option-preview">
+            <div class="preview-row">
+                <span class="preview-label">Primary</span>
+                <button class="btn-editorial-primary">
+                    <span>Buy Now</span>
+                    <svg style="position:relative;z-index:1;" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+                <button class="btn-editorial-primary" style="font-size:17px; padding:13px 32px;">Explore the Device</button>
+            </div>
+            <div class="preview-row">
+                <span class="preview-label">Secondary</span>
+                <button class="btn-editorial-secondary">
+                    Learn More
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+                <button class="btn-editorial-secondary" style="margin-left:20px;">View Science</button>
+            </div>
+            <div class="preview-row">
+                <span class="preview-label">On Dark</span>
+                <div class="dark-tile">
+                    <button class="btn-editorial-primary" style="background: transparent; color: var(--warm-ivory); border-color: rgba(250,248,244,0.2);">Buy Now</button>
+                    <button class="btn-editorial-secondary" style="color: rgba(250,248,244,0.6);">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- OPTION D -->
+    <div class="option">
+        <div class="option-meta">
+            <div class="option-number">D</div>
+            <div class="option-name">Precise</div>
+            <div class="option-desc">Medical-grade precision. No border-radius. Amber accent line draws in on hover. Maximum credibility — built for trust, not trend.</div>
+        </div>
+        <div class="option-preview">
+            <div class="preview-row">
+                <span class="preview-label">Primary</span>
+                <button class="btn-precise-primary">
+                    Buy Now
+                    <svg class="p-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+                <button class="btn-precise-primary" style="padding:13px 28px; font-size:11px;">Explore Device</button>
+            </div>
+            <div class="preview-row">
+                <span class="preview-label">Secondary</span>
+                <button class="btn-precise-secondary"><span>Learn More</span></button>
+                <button class="btn-precise-secondary" style="margin-left: 8px;"><span>View Specs</span></button>
+            </div>
+            <div class="preview-row">
+                <span class="preview-label">On Dark</span>
+                <div class="dark-tile">
+                    <button class="btn-precise-primary" style="background: rgba(255,255,255,0.06); color: var(--warm-ivory); border-radius:3px;">Buy Now</button>
+                    <button class="btn-precise-secondary" style="color: rgba(250,248,244,0.7); border-color: rgba(250,248,244,0.15);"><span>Learn More</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- OPTION E -->
+    <div class="option">
+        <div class="option-meta">
+            <div class="option-number">E</div>
+            <div class="option-name">Capsule</div>
+            <div class="option-desc">The definitive premium pill. Teal gradient, outer glow halo on hover. Clean, contemporary, instantly recognisable. Works everywhere.</div>
+        </div>
+        <div class="option-preview">
+            <div class="preview-row">
+                <span class="preview-label">Primary</span>
+                <button class="btn-capsule-primary">
+                    Buy Now
+                    <svg class="c-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+                <button class="btn-capsule-primary" style="padding:13px 30px; font-size:13px;">Explore Device</button>
+            </div>
+            <div class="preview-row">
+                <span class="preview-label">Secondary</span>
+                <button class="btn-capsule-secondary"><span>Learn More</span></button>
+                <button class="btn-capsule-secondary" style="margin-left:8px;"><span>View the Science</span></button>
+            </div>
+            <div class="preview-row">
+                <span class="preview-label">On Dark</span>
+                <div class="dark-tile">
+                    <button class="btn-capsule-primary">Buy Now</button>
+                    <button class="btn-capsule-secondary" style="color: rgba(250,248,244,0.75); border-color: rgba(250,248,244,0.2);"><span>Learn More</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

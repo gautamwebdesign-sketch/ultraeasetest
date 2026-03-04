@@ -11,21 +11,21 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
     ({ className, variant = "primary", size = "md", href, ...props }, ref) => {
         const variants = {
-            primary: "bg-primary text-white hover:bg-primary-hover border border-transparent hover:border-white/30 hover:-translate-y-1 shadow-none transition-all duration-300",
-            secondary: "bg-secondary text-foreground hover:bg-secondary/80",
-            outline: "border border-white/20 hover:border-white/40 hover:bg-white/5 text-foreground backdrop-blur-sm",
-            ghost: "hover:bg-white/5 text-foreground/80 hover:text-foreground",
+            primary: "btn-capsule-primary",
+            secondary: "btn-capsule-secondary",
+            outline: "border border-deep-teal/30 text-deep-teal hover:bg-deep-teal/5 rounded-full tracking-wide transition-all",
+            ghost: "text-deep-charcoal/70 hover:text-deep-charcoal hover:bg-black/5 rounded-full tracking-wide transition-all",
         };
 
         const sizes = {
-            sm: "h-9 px-4 text-sm",
-            md: "h-11 px-6 text-base",
-            lg: "h-14 px-8 text-lg font-medium",
-            full: "h-12 w-full text-base",
+            sm: "py-[11px] px-[26px] text-[12px]",
+            md: "py-[15px] px-[40px] text-[13px]",
+            lg: "py-[19px] px-[56px] text-[16px]",
+            full: "py-[15px] w-full text-[14px]",
         };
 
         const commonClasses = cn(
-            "inline-flex items-center justify-center rounded-lg transition-all duration-300 font-medium active:scale-95 disabled:pointer-events-none disabled:opacity-50",
+            "inline-flex items-center justify-center font-sans font-medium tracking-[0.04em] disabled:pointer-events-none disabled:opacity-50",
             variants[variant],
             sizes[size],
             className

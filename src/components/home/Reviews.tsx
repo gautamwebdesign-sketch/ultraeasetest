@@ -18,9 +18,9 @@ const reviews = [
     {
         name: "Rene",
         role: "Verified Purchase",
-        content: "Crazy device... The secret to eternal youth! I used it for back pain and saw immediate relief. Then I tried it for beauty with a moisture mask - the results for skin tightening were amazing.",
+        content: "I started using it for back pain and noticed relief within a few sessions. Then tried it for skin care with a moisture mask — the results for tightening were genuinely impressive. Useful in both directions.",
         initials: "RE",
-        category: "Skin & Beauty" // Fits both, but let's categorize for filtering
+        category: "Skin & Beauty"
     },
     {
         name: "Leseratte",
@@ -64,11 +64,11 @@ export function Reviews() {
             <Container>
                 <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
                     <div className="max-w-xl">
-                        <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl text-deep-charcoal mb-6">
+                        <h2 className="font-heading italic text-4xl sm:text-5xl lg:text-6xl text-deep-charcoal leading-[1.1] mb-6">
                             In Their Words
                         </h2>
-                        <p className="font-sans text-xl text-deep-charcoal/70">
-                            Real experiences from people who trusted Ultraease to help them heal.
+                        <p className="font-sans text-lg lg:text-xl text-deep-charcoal/70 leading-relaxed">
+                            What people say after consistent use.
                         </p>
                     </div>
 
@@ -109,7 +109,7 @@ export function Reviews() {
                                             <Star key={s} size={14} className="fill-amber-glow text-amber-glow" />
                                         ))}
                                     </div>
-                                    <p className="font-heading text-xl lg:text-2xl text-deep-charcoal leading-relaxed mb-8">
+                                    <p className="font-sans text-base lg:text-lg italic text-deep-charcoal/80 leading-relaxed mb-8">
                                         &quot;{review.content}&quot;
                                     </p>
                                 </div>
@@ -122,7 +122,7 @@ export function Reviews() {
                                         <p className="font-sans font-medium text-deep-charcoal text-sm">{review.name}</p>
                                         <div className="flex items-center gap-2 mt-0.5">
                                             <span className="w-1.5 h-1.5 rounded-full bg-deep-teal/50" />
-                                            <p className="text-xs text-deep-charcoal/50 uppercase tracking-wider">{review.role}</p>
+                                            <p className="font-sans text-xs text-deep-charcoal/50 uppercase tracking-[0.2em]">{review.role}</p>
                                         </div>
                                     </div>
                                 </div>

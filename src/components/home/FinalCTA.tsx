@@ -3,8 +3,8 @@
 import { motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { ArrowRight, Star, ShieldCheck } from "lucide-react";
-import Link from "next/link";
 import Image from "next/image";
+import { Button } from "@/components/ui/Button";
 
 export function FinalCTA() {
     return (
@@ -28,43 +28,52 @@ export function FinalCTA() {
                                         <Star key={s} size={12} className="fill-amber-glow text-amber-glow" />
                                     ))}
                                 </div>
-                                <span className="text-white/80 font-sans text-xs font-medium tracking-widest ml-2">
-                                    4.8/5 Verified Reviews
+                                <span className="font-sans text-warm-ivory/80 text-xs font-medium tracking-[0.2em] ml-2">
+                                    4.3 · 252 Verified Reviews
                                 </span>
                             </div>
 
-                            <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl text-white leading-[1.1] mb-8">
-                                Professional deep tissue relief, sitting on your nightstand.
+                            <p className="font-sans text-xs font-semibold tracking-[0.2em] uppercase text-[#17bbb0] mb-5">
+                                Two applications. One device.
+                            </p>
+
+                            <h2 className="font-heading text-3xl sm:text-4xl text-warm-ivory leading-[1.2] mb-5">
+                                Built for deep tissue recovery.<br />
+                                <em className="italic text-amber-glow/90">Effective for skin, too.</em>
                             </h2>
 
+                            <p className="font-sans text-base text-warm-ivory/60 leading-relaxed mb-10 max-w-sm">
+                                Therapeutic ultrasound for chronic muscle tension and joint pain — and a separate mode for facial skin rejuvenation. Clinical technology, designed for home.
+                            </p>
+
                             {/* Main CTA */}
-                            <Link
+                            <Button
                                 href="/product/ultrasound-device-for-home-wireless-warming-physiological-therapy"
-                                className="group inline-flex items-center justify-center w-full sm:w-auto px-10 py-5 bg-deep-teal rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 shadow-[0_0_40px_rgba(23,187,176,0.3)] hover:shadow-[0_0_60px_rgba(23,187,176,0.5)]"
+                                variant="primary"
+                                size="lg"
+                                className="w-full sm:w-auto group"
                             >
-                                <span className="relative z-10 font-sans font-medium text-lg text-white flex items-center gap-3">
-                                    Buy Now
-                                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                                </span>
-                            </Link>
+                                Buy Now
+                                <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            </Button>
 
                             {/* Guarantee Callout */}
-                            <div className="mt-8 flex items-center gap-3 text-white/50 font-sans text-sm">
+                            <div className="mt-8 flex items-center gap-3 text-warm-ivory/50 font-sans text-sm">
                                 <ShieldCheck size={18} className="text-mid-teal" />
-                                <p>30-Day Satisfaction Guarantee. Free returns available.</p>
+                                <p className="font-sans">30-Day Satisfaction Guarantee. Free returns available.</p>
                             </div>
                         </motion.div>
                     </div>
 
                     {/* Right Side: Image */}
-                    <div className="relative w-full lg:w-[45%] h-[400px] lg:h-auto flex-shrink-0 order-1 lg:order-2 bg-[#1a3540]">
-                        {/* Gradient overlay for blending */}
-                        <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-l from-deep-charcoal via-deep-charcoal/30 to-transparent z-10 pointer-events-none" />
+                    <div className="relative w-full lg:w-[45%] h-[400px] lg:h-auto flex-shrink-0 order-1 lg:order-2 bg-[#0d1f27]">
+                        {/* Gradient overlay — fades left edge into content panel */}
+                        <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-deep-charcoal via-deep-charcoal/20 to-transparent z-10 pointer-events-none" />
                         <Image
-                            src="/cta-device.png"
+                            src="/ai%20generated%20product%20images/hero_product_device_1771658893867.png"
                             alt="Ultraease Ultrasound Device"
                             fill
-                            className="object-cover lg:object-right object-center mix-blend-screen opacity-90"
+                            className="object-cover object-center mix-blend-normal opacity-100"
                         />
                     </div>
                 </div>

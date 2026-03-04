@@ -35,7 +35,7 @@ export function FAQ() {
     return (
         <section className="py-24 bg-secondary/20">
             <Container className="max-w-3xl">
-                <h2 className="text-3xl font-bold font-heading text-white mb-12 text-center">
+                <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl text-warm-ivory leading-[1.1] mb-12 text-center">
                     Frequently <span className="text-gradient">Asked Questions</span>
                 </h2>
 
@@ -52,7 +52,7 @@ export function FAQ() {
                                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                                 className="w-full flex items-center justify-between p-6 text-left"
                             >
-                                <span className={`font-heading font-semibold text-lg transition-colors ${openIndex === index ? "text-white" : "text-white/80"
+                                                <span className={`font-heading text-2xl lg:text-3xl leading-tight transition-colors ${openIndex === index ? "text-warm-ivory" : "text-warm-ivory/80"
                                     }`}>
                                     {faq.question}
                                 </span>
@@ -70,7 +70,7 @@ export function FAQ() {
                                         exit={{ height: 0, opacity: 0 }}
                                         transition={{ duration: 0.3, ease: "circOut" }}
                                     >
-                                        <div className="p-6 pt-0 text-white/70 leading-relaxed text-balance border-t border-white/5 mt-2">
+                                        <div className="font-sans p-6 pt-0 text-base text-warm-ivory/70 leading-relaxed text-balance border-t border-white/5 mt-2">
                                             {faq.answer}
                                         </div>
                                     </motion.div>

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview: Premium Buttons for Ultraease</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap');
+
+        :root {
+            /* Ultraease Theme Colors */
+            --deep-teal: #1A4A5A;
+            --mid-teal: #4A7C8E;
+            --amber-glow: #D4956A;
+            --warm-stone: #E8E0D8;
+            --warm-ivory: #FAF8F4;
+            --deep-charcoal: #1A2B35;
+            
+            /* Animation Curve */
+            --expo: cubic-bezier(0.19, 1, 0.22, 1);
+            
+            /* Fonts */
+            --font-sans: 'DM Sans', sans-serif;
+            --font-serif: 'Cormorant Garamond', serif;
+        }
+
+        body { 
+            background: var(--warm-ivory); 
+            font-family: var(--font-sans); 
+            padding: 80px 20px; 
+            color: var(--deep-charcoal);
+        }
+
+        h2.section-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--mid-teal);
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-family: var(--font-sans);
+        }
+
+        /* 01. IMPROVED CONDUCTIVE HEAD (SLIMMER + BRAND LIGHT) - KEPT FROM USER, FONT FIXED */
+        .btn-metal {
+            position: relative;
+            padding: 14px 32px;
+            background: linear-gradient(145deg, #ffffff, var(--warm-stone));
+            border: 1px solid rgba(26, 74, 90, 0.2);
+            border-radius: 2px;
+            color: var(--deep-teal);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 12px;
+            font-family: var(--font-sans);
+            transition: all 0.5s var(--expo);
+            box-shadow: 0 4px 10px rgba(26, 74, 90, 0.05);
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+        }
+        .btn-metal::before {
+            content: ''; position: absolute; top: 0; left: -150%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(74, 124, 142, 0.2), transparent);
+            transition: all 0.8s var(--expo);
+        }
+        .btn-metal:hover { 
+            transform: translateY(-2px); 
+            box-shadow: 0 12px 24px rgba(26, 74, 90, 0.12); 
+            border-color: var(--mid-teal); 
+        }
+        .btn-metal:hover::before { left: 150%; }
+
+        .btn-metal-sec {
+            padding: 14px 32px;
+            color: var(--mid-teal);
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: var(--font-sans);
+            transition: opacity 0.3s;
+            border-bottom: 1px solid transparent;
+        }
+        .btn-metal-sec:hover { border-bottom-color: var(--mid-teal); }
+
+        /* 02. EDITORIAL SERIF BUTTON */
+        .btn-editorial {
+            font-family: var(--font-serif);
+            font-size: 20px;
+            font-style: italic;
+            color: var(--deep-teal);
+            position: relative;
+            display: inline-block;
+            transition: color 0.4s ease;
+        }
+        .btn-editorial::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: var(--amber-glow);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s var(--expo);
+        }
+        .btn-editorial:hover {
+            color: var(--amber-glow);
+        }
+        .btn-editorial:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        /* 03. CLINICAL TRANSLUCENT */
+        .btn-clinical {
+            background-color: transparent;
+            border: 1px solid var(--deep-teal);
+            color: var(--deep-teal);
+            font-family: var(--font-sans);
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            padding: 14px 36px;
+            border-radius: 9999px; /* Pill shape */
+            transition: all 0.4s var(--expo);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .btn-clinical::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: var(--deep-teal);
+            z-index: -1;
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: transform 0.4s var(--expo);
+        }
+        .btn-clinical:hover {
+            color: #fff;
+            border-color: var(--deep-teal);
+        }
+        .btn-clinical:hover::before {
+            transform: scaleY(1);
+        }
+
+        /* 04. AMBER THERMAL GLOW */
+        .btn-thermal {
+            background-color: var(--amber-glow);
+            color: white;
+            padding: 16px 42px;
+            font-family: var(--font-sans);
+            font-weight: 700;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(212, 149, 106, 0.3);
+            transition: all 0.4s var(--expo);
+            letter-spacing: 0.02em;
+        }
+        .btn-thermal:hover {
+            background-color: #c08259;
+            box-shadow: 0 8px 25px rgba(212, 149, 106, 0.5);
+            transform: translateY(-2px);
+        }
+
+        /* 05. DEEP TEAL ELEVATION */
+        .btn-deep {
+            background-color: var(--deep-charcoal);
+            color: var(--warm-ivory);
+            padding: 16px 36px;
+            font-family: var(--font-sans);
+            font-weight: 500;
+            letter-spacing: 1px;
+            box-shadow: 0px 10px 20px -5px rgba(26, 43, 53, 0.4);
+            transition: all 0.4s var(--expo);
+            position: relative;
+            top: 0;
+            border: 1px solid var(--deep-charcoal);
+        }
+        .btn-deep:hover {
+            background-color: var(--deep-teal);
+            border-color: var(--deep-teal);
+            box-shadow: 0px 15px 25px -5px rgba(26, 74, 90, 0.5);
+            top: -3px;
+        }
+
+        /* 06. ARCHITECTURAL LINE */
+        .btn-arch {
+            font-family: var(--font-sans);
+            color: var(--deep-charcoal);
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 11px;
+            letter-spacing: 2px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: gap 0.4s var(--expo);
+        }
+        .btn-arch .line {
+            width: 30px;
+            height: 1px;
+            background-color: var(--deep-charcoal);
+            transition: width 0.4s var(--expo), background-color 0.4s;
+        }
+        .btn-arch:hover {
+            gap: 16px;
+            color: var(--amber-glow);
+        }
+        .btn-arch:hover .line {
+            width: 45px;
+            background-color: var(--amber-glow);
+        }
+
+        /* 07. WARM STONE TACTILE */
+        .btn-tactile {
+            background-color: var(--warm-stone);
+            color: var(--deep-teal);
+            font-family: var(--font-sans);
+            font-weight: 600;
+            padding: 14px 32px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.5);
+            box-shadow: inset 0 2px 4px rgba(255,255,255,0.7), 0 4px 8px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        .btn-tactile:hover {
+            background-color: #dfd5cb;
+            box-shadow: inset 0 2px 4px rgba(255,255,255,0.4), 0 6px 12px rgba(0,0,0,0.08);
+            transform: translateY(-1px);
+        }
+
+        /* 08. SERENE MINIMALIST */
+        .btn-minimal {
+            background: transparent;
+            border: none;
+            color: var(--mid-teal);
+            font-family: var(--font-sans);
+            font-size: 14px;
+            font-weight: 500;
+            position: relative;
+            padding: 8px 0;
+            overflow: hidden;
+            display: inline-block;
+        }
+        .btn-minimal::before {
+            content: '';
+            position: absolute;
+            bottom: 0px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: var(--warm-stone);
+        }
+        .btn-minimal::after {
+            content: '';
+            position: absolute;
+            bottom: 0px;
+            left: -100%;
+            width: 100%;
+            height: 1px;
+            background-color: var(--deep-teal);
+            transition: left 0.5s var(--expo);
+        }
+        .btn-minimal:hover {
+            color: var(--deep-teal);
+        }
+        .btn-minimal:hover::after {
+            left: 0;
+        }
+
+        /* 09. SPLIT LUXURY */
+        .btn-split {
+            display: inline-flex;
+            font-family: var(--font-sans);
+            border-radius: 2px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.4s var(--expo), box-shadow 0.4s var(--expo);
+        }
+        .btn-split-main {
+            background-color: var(--deep-teal);
+            color: #fff;
+            padding: 14px 28px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+        .btn-split-arrow {
+            background-color: var(--mid-teal);
+            color: #fff;
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+        .btn-split:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(26, 74, 90, 0.2);
+        }
+        .btn-split:hover .btn-split-arrow {
+            background-color: var(--amber-glow);
+        }
+
+        /* 10. SOFT HALO (Works great on dark backgrounds, placed on a dark tile here for preview) */
+        .btn-halo {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            font-family: var(--font-sans);
+            font-weight: 500;
+            padding: 14px 36px;
+            border-radius: 30px;
+            backdrop-filter: blur(8px);
+            transition: all 0.5s var(--expo);
+        }
+        .btn-halo:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+<div class="max-w-6xl mx-auto mb-16">
+    <h1 class="font-serif text-4xl text-deep-charcoal mb-4" style="font-family: 'Cormorant Garamond', serif;">Ultraease Premium Button Components</h1>
+    <p class="text-mid-teal mb-12" style="color: #4A7C8E;">10 high-end button concepts designed specifically for the Ultraease brand palette and typography (DM Sans + Cormorant Garamond).</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-20 gap-y-16">
+        
+        <!-- 01 -->
+        <div class="space-y-4">
+            <h2 class="section-label">01. Conductive Head Redux (User Request)</h2>
+            <div class="flex items-center gap-8">
+                <button class="btn-metal">Explore Device</button>
+                <button class="btn-metal-sec">Watch Film</button>
+            </div>
+        </div>
+
+        <!-- 02 -->
+        <div class="space-y-4">
+            <h2 class="section-label">02. Editorial Serif</h2>
+            <div class="flex items-center gap-6">
+                <button class="btn-editorial">Discover the Science</button>
+            </div>
+        </div>
+
+        <!-- 03 -->
+        <div class="space-y-4">
+            <h2 class="section-label">03. Clinical Translucent</h2>
+            <div class="flex items-center gap-6">
+                <button class="btn-clinical">View Specifications</button>
+            </div>
+        </div>
+
+        <!-- 04 -->
+        <div class="space-y-4">
+            <h2 class="section-label">04. Amber Thermal Glow</h2>
+            <div class="flex items-center gap-6">
+                <button class="btn-thermal">Start Your Recovery</button>
+            </div>
+        </div>
+
+        <!-- 05 -->
+        <div class="space-y-4">
+            <h2 class="section-label">05. Deep Teal Elevation</h2>
+            <div class="flex items-center gap-6">
+                <button class="btn-deep">Add to Cart — $199</button>
+            </div>
+        </div>
+
+        <!-- 06 -->
+        <div class="space-y-4">
+            <h2 class="section-label">06. Architectural Line</h2>
+            <div class="flex items-center gap-6">
+                <button class="btn-arch">
+                    Our Philosophy
+                    <span class="line"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- 07 -->
+        <div class="space-y-4">
+            <h2 class="section-label">07. Warm Stone Tactile</h2>
+            <div class="flex items-center gap-6">
+                <button class="btn-tactile">Learn More</button>
+            </div>
+        </div>
+
+        <!-- 08 -->
+        <div class="space-y-4">
+            <h2 class="section-label">08. Serene Minimalist</h2>
+            <div class="flex items-center gap-6">
+                <button class="btn-minimal">Read Clinical Studies</button>
+            </div>
+        </div>
+
+        <!-- 09 -->
+        <div class="space-y-4">
+            <h2 class="section-label">09. Split Luxury</h2>
+            <div class="flex items-center gap-6">
+                <button class="btn-split">
+                    <span class="btn-split-main">Purchase Device</span>
+                    <span class="btn-split-arrow">→</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- 10 -->
+        <div class="space-y-4">
+            <h2 class="section-label text-white/70">10. Soft Halo (Dark Context)</h2>
+            <div class="p-8 bg-[#1A2B35] rounded-xl flex items-center gap-6">
+                <button class="btn-halo">Play Video</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

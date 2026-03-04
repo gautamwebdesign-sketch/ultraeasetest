@@ -20,9 +20,12 @@ export function StillnessMoment() {
                     </svg>
                 </div>
 
-                <h2 className="font-heading text-4xl md:text-5xl lg:text-7xl text-deep-charcoal italic px-4 leading-[1.15]">
-                    10 minutes. <br className="md:hidden" /> That&apos;s all it asks.
+                <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl text-deep-charcoal italic px-4 leading-[1.1]">
+                    10 minutes. <br className="sm:hidden" /> That&apos;s all it takes.
                 </h2>
+                <p className="font-sans text-base sm:text-lg text-deep-charcoal/50 mt-6 tracking-wide">
+                    Once daily. No prescription, no appointment, no waiting room.
+                </p>
             </motion.div>
         </section>
     );

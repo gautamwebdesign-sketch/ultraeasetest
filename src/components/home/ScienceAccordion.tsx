@@ -59,19 +59,55 @@ const faqData = [
                 content: "Max duty cycle is automatically regulated. Continuous thermal therapy over 15 minutes in a single localized area is not recommended to prevent excessive tissue heating. The 10-minute timer ensures therapy remains within the optimal therapeutic window."
             }
         ]
+    },
+    {
+        id: "athletes",
+        question: "Can athletes use it for recovery?",
+        layers: [
+            {
+                type: "Simple",
+                content: "Yes — and it is particularly effective for post-training recovery. Many athletes use therapeutic ultrasound to address delayed onset muscle soreness, reduce deep tissue tension, and support recovery between sessions."
+            },
+            {
+                type: "Detailed",
+                content: "Ultrasound therapy accelerates tissue recovery by increasing local circulation, reducing inflammation in deep muscle fibres, and promoting cellular repair. Unlike surface ice or heat treatments, it acts at the depth where training stress accumulates — in the fascia and deep muscle. It is suitable for use the day after intense training or competition."
+            },
+            {
+                type: "Technical",
+                content: "At 1MHz and 0.5–1.5 W/cm², continuous ultrasound generates thermal effects that increase tissue extensibility and metabolic activity. Pulsed settings at lower intensities are used for sub-acute inflammation management. Both modalities are documented in sports medicine literature for accelerating musculoskeletal recovery."
+            }
+        ]
+    },
+    {
+        id: "value",
+        question: "How does it compare to regular physiotherapy?",
+        layers: [
+            {
+                type: "Simple",
+                content: "A single physiotherapy session with ultrasound treatment typically costs €50–120 in Germany. Ultraease pays for itself after three to five sessions — and gives you access to the same technology every day, at home."
+            },
+            {
+                type: "Detailed",
+                content: "Professional physiotherapy offers skilled assessment and hands-on treatment that a device cannot replicate. However, the ultrasound component — which is one of the most commonly used modalities in physical therapy — is directly available through Ultraease. For chronic conditions requiring regular sessions, the long-term cost saving is significant. Many users find it most effective when used alongside, or between, professional appointments."
+            },
+            {
+                type: "Technical",
+                content: "The device operates at clinical therapeutic parameters: 1MHz frequency, ERA 4.0cm², intensity range 0.29–0.53 W/cm². These specifications fall within the range used in professional therapeutic settings. The primary clinical advantage of in-clinic ultrasound over home use is real-time adjustment by a trained physiotherapist — which remains the standard of care for acute or complex conditions."
+            }
+        ]
     }
 ];
 
 export function ScienceAccordion() {
     return (
-        <section className="py-24 lg:py-32 bg-warm-stone/10 selection:bg-deep-teal/10">
+        <section id="faq" className="py-24 lg:py-32 bg-warm-stone/10 selection:bg-deep-teal/10">
             <Container className="max-w-4xl">
                 <div className="text-center mb-16 lg:mb-24">
-                    <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl text-deep-charcoal mb-6">
-                        The Science, Unpacked.
+                    <h2 className="font-heading italic text-4xl sm:text-5xl lg:text-6xl text-deep-charcoal leading-[1.1] mb-6">
+                        Still have questions?
                     </h2>
-                    <p className="font-sans text-xl text-deep-charcoal/70">
-                        Ask any question. Go as deep as you&apos;d like.
+                    <p className="font-sans text-lg lg:text-xl text-deep-charcoal/70 leading-relaxed">
+                        Start simple. Go deeper if you want to. We&apos;ve written it for both.
                     </p>
                 </div>
 

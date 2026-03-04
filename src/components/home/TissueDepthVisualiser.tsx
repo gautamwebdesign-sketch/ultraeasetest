@@ -7,17 +7,17 @@ import { Container } from "@/components/ui/Container";
 const steps = [
     {
         title: "Surface Remains Cool",
-        desc: "Traditional heat pads and creams warm the skin — and stop there. The epidermis and dermis absorb the heat before it can travel any deeper. You feel warmth on the surface, but the tension in your muscle and fascia remains completely untouched.\n\nUltraease produces no surface heat at all. The skin stays cool. That's not a limitation — it's the point.",
+        desc: "Heat pads and warming creams only reach the skin. The tension in your fascia and deep muscle stays completely untouched.",
         layerIndex: 0
     },
     {
         title: "The Ultrasound Wave",
-        desc: "Ultrasound waves are sound energy — not heat. At this frequency, they pass straight through the upper tissue layers without being absorbed. The epidermis, dermis, and subcutaneous fat offer no resistance.\n\nThis is why you feel nothing on the surface while the device is working. The energy isn't stopping here. It's travelling.",
+        desc: "Ultrasound passes straight through the upper layers without being absorbed. You feel nothing on the surface because the energy is still travelling.",
         layerIndex: 1
     },
     {
         title: "Warmth From Within",
-        desc: "When the ultrasound wave reaches the dense tissue of your fascia and deep muscle, it finally meets resistance. That resistance is where the conversion happens — sound energy becomes thermal energy, generating a deep, sustained warmth exactly where the tension lives.\n\nThis is what a heat pad cannot do. This is what a massage gun cannot do. The warmth begins at the source, not the surface.",
+        desc: "When the wave reaches dense fascia and muscle tissue, resistance converts it to heat. Deep, sustained warmth at exactly the source — not the surface.",
         layerIndex: 2
     }
 ];
@@ -37,7 +37,7 @@ export function TissueDepthVisualiser() {
     const deepWarmthScale = useTransform(scrollYProgress, [0.65, 0.85, 1], [0.8, 1, 1.1]);
 
     return (
-        <section ref={containerRef} className="relative h-[300vh] bg-warm-ivory">
+        <section id="specs" ref={containerRef} className="relative h-[300vh] bg-warm-ivory">
             <div className="sticky top-0 h-screen overflow-hidden flex items-center">
                 <Container className="grid grid-cols-1 lg:grid-cols-2 gap-12 w-full h-[60vh] lg:h-[80vh]">
 
@@ -193,10 +193,10 @@ function TextStep({ step, index, progress, start, end }: { step: { title: string
             className="absolute top-1/2 -translate-y-1/2 w-full max-w-md bg-white/80 lg:bg-transparent backdrop-blur-md lg:backdrop-blur-none p-6 lg:p-0 rounded-2xl lg:rounded-none lg:shadow-none shadow-sm"
             style={{ opacity, y, pointerEvents: pointerEvents as unknown as "auto" | "none" }}
         >
-            <p className="text-amber-glow font-medium text-sm tracking-widest uppercase mb-4">
+            <p className="font-sans text-xs font-semibold tracking-[0.2em] uppercase text-amber-glow mb-4">
                 0{index + 1}
             </p>
-            <h3 className="font-heading text-3xl lg:text-5xl text-deep-charcoal mb-4 lg:mb-6">
+            <h3 className="font-heading text-2xl lg:text-3xl text-deep-charcoal mb-4 lg:mb-6">
                 {step.title}
             </h3>
             <p className="font-sans text-lg lg:text-xl text-deep-charcoal/70 leading-relaxed">

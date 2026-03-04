@@ -1,12 +1,12 @@
 import { Navbar, Footer } from "@/components/layout";
 import { Hero } from "@/components/home/Hero";
 import { ProblemRecognition } from "@/components/home/ProblemRecognition";
+import { ProductShowcase } from "@/components/home/ProductShowcase";
 import { TwoPaths } from "@/components/home/TwoPaths";
 import { TissueDepthVisualiser } from "@/components/home/TissueDepthVisualiser";
-import { FrequencyExplorer } from "@/components/home/FrequencyExplorer";
 import { SessionWalkthrough } from "@/components/home/SessionWalkthrough";
-import { Timeline } from "@/components/home/Timeline";
 import { Reviews } from "@/components/home/Reviews";
+import { MindBodyBonus } from "@/components/home/MindBodyBonus";
 import { StillnessMoment } from "@/components/home/StillnessMoment";
 import { ScienceAccordion } from "@/components/home/ScienceAccordion";
 import { FinalCTA } from "@/components/home/FinalCTA";
@@ -19,17 +19,21 @@ export default function Home() {
 
       {/* Narrative & Education */}
       <ProblemRecognition />
+      <ProductShowcase />
       <TwoPaths />
       <TissueDepthVisualiser />
 
-      {/* Interactive Features */}
-      <FrequencyExplorer />
+      {/* How to Use */}
       <SessionWalkthrough />
-      <Timeline />
 
       {/* Trust & Conversion */}
+      <MindBodyBonus />
       <Reviews />
+
+      {/* Emotional Close */}
       <StillnessMoment />
+
+      {/* Final Objection Handling + CTA */}
       <ScienceAccordion />
       <FinalCTA />
 
